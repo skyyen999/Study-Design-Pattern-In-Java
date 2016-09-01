@@ -1,6 +1,5 @@
 # Summary
 * [Introduce] (introduce.md)
-* [設計模式概觀](overall.md)
 * [物件導向設計基本原則  - SOLID](oodPrinciple.md)	
 * [創建模式-Creational Pattern]
 	* [簡單工廠模式 Simple Factory](simpleFactory.md)
