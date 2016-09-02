@@ -1,7 +1,7 @@
 package c1.simpleFactory.village;
 
 /**
- * 簡單工廠-訓練冒險者的訓練營
+ * 簡單工廠-冒險者訓練營
  */
 public class TrainingCamp {
 	public static Adventurer trainAdventurer(String type){

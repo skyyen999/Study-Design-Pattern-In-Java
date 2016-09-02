@@ -1,7 +1,6 @@
-package c1.simpleFactory.village;
+package c2.factory.village;
 
 import org.junit.Test;
-
 import org.junit.Assert;
 /**
  * 冒險者訓練營測試
@@ -9,11 +8,16 @@ import org.junit.Assert;
 public class TrainingCampTest {
 	@Test
 	public void test(){
-		System.out.println("==========簡單工廠模式測試==========");
+		System.out.println("==========工廠模式測試==========");
 		
 		//訓練營訓練冒險者
-		Adventurer memberA = TrainingCamp.trainAdventurer("archer");
-		Adventurer memberB = TrainingCamp.trainAdventurer("warrior");
+		//先用弓箭手訓練營訓練弓箭手
+		TrainingCamp trainingCamp = new ArcherTrainingCamp();
+		Adventurer memberA = trainingCamp.trainAdventurer();
+		
+		//用鬥士訓練營訓練鬥士
+		trainingCamp = new WarriorTrainingCamp();
+		Adventurer memberB = trainingCamp.trainAdventurer();
 		
 		//看看是不是真的訓練出我們想要的冒險者
 		Assert.assertEquals(memberA.getType(), "Archer");

@@ -3,11 +3,13 @@
 現在要設計一個訓練冒險者(Adventurer)的新手村(Village)，裡面可以訓練弓箭手(Archer)、鬥士(Warrior)。  
 
 類別圖：  
-![Training Camp](image/trainingCamp.gif)  
+![Training Camp](image/simpleFactory.gif)  
   
 程式碼：  
 ```
-//  簡單工廠-訓練冒險者的訓練營
+/**
+ * 簡單工廠-冒險者訓練營
+ */
 public class TrainingCamp {
 	public static Adventurer trainAdventurer(String type){
 		switch(type){
