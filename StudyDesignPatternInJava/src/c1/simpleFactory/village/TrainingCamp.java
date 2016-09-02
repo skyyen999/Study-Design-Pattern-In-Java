@@ -2,8 +2,6 @@ package c1.simpleFactory.village;
 
 /**
  * 簡單工廠-訓練冒險者的訓練營
- * @author Yan
- *
  */
 public class TrainingCamp {
 	public static Adventurer trainAdventurer(String type){

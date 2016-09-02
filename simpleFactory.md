@@ -7,9 +7,9 @@
   
 程式碼：  
 ```
-// 訓練冒險者的村莊(簡單工廠)
-public class Village {
-	public Adventurer trainAdventurer(String type){
+//  簡單工廠-訓練冒險者的訓練營
+public class TrainingCamp {
+	public static Adventurer trainAdventurer(String type){
 		switch(type){
 			case "archer" : System.out.println("訓練一個弓箭手");return new Archer(); 
 			case "warrior": System.out.println("訓練一個鬥士");return new Warrior();
@@ -42,13 +42,18 @@ public class Warrior implements Adventurer {
 	}
 }	
 
-// 冒險者新手村測試
+// 冒險者訓練營測試
 public class VillageTest {
 	@Test
 	public void test(){
 		//新手村訓練冒險者
 		Adventurer memberA = Village.trainAdventurer("archer");
 		Adventurer memberB = Village.trainAdventurer("warrior");
+				//看看是不是真的訓練出我們想要的冒險者
+		Assert.assertEquals(memberA.getType(), "Archer");
+
+		Assert.assertEquals(memberB.getType(), "Warrior");
+		
 	}
 }
 
