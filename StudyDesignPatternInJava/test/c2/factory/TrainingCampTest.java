@@ -1,6 +1,12 @@
-package c2.factory.village;
+package c2.factory;
 
 import org.junit.Test;
+
+import c2.factory.village.Adventurer;
+import c2.factory.village.ArcherTrainingCamp;
+import c2.factory.village.TrainingCamp;
+import c2.factory.village.WarriorTrainingCamp;
+
 import org.junit.Assert;
 /**
  * 冒險者訓練營測試

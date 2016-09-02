@@ -1,6 +1,9 @@
-package c1.simpleFactory.village;
+package c1.simpleFactory;
 
 import org.junit.Test;
+
+import c1.simpleFactory.village.Adventurer;
+import c1.simpleFactory.village.TrainingCamp;
 
 import org.junit.Assert;
 /**
