@@ -2,8 +2,6 @@ package c3.abstractfactory.village;
 
 /**
  * 鬥士
- * @author Yan
- *
  */
 public class Warrior extends Adventurer {
 	@Override public void display() {

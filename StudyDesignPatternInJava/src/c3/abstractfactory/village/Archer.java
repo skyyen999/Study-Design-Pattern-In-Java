@@ -1,7 +1,6 @@
 package c3.abstractfactory.village;
 /**
  * 弓箭手
- * @author Yan
  *
  */
 public class Archer extends Adventurer {

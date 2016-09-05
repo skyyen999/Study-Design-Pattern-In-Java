@@ -5,7 +5,6 @@ import c3.abstractfactory.factory.Weapon;
 
 /**
  * 冒險者
- * @author Yan
  */
 public abstract class Adventurer {
 	protected Weapon weapon;	//武器
