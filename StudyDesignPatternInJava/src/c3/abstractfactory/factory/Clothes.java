@@ -9,7 +9,7 @@ public abstract class Clothes {
 	 * 展示這件衣服
 	 */
 	public void display(){
-		System.out.println(this.getClass().getSimpleName() + " def = " + def);
+		System.out.print("  "+this.getClass().getSimpleName() + " def:" + def);
 	}
 	
 	public int getDef() {

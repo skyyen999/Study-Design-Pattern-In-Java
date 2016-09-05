@@ -23,6 +23,6 @@ public abstract class Weapon {
 	 * 展示武器
 	 */
 	public void display(){
-		System.out.println(this.getClass().getSimpleName() + " atk = " + atk + " , range = " + range);
+		System.out.print("  "+this.getClass().getSimpleName() + " atk:" + atk + " range:" + range);
 	}
 }
