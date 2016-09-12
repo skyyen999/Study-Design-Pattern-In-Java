@@ -4,10 +4,9 @@
 * 將各種可以互換的演算法(策略)包裝成一個類別。
 
 ####冒險者要來打怪物了
-剛才的簡單工廠模式因為只有一個訓練營，要新增冒險者型態時會直接破壞了開放/封閉原則，
-在工廠模式中，將訓練營提升為一個抽象的概念(定義什麼是訓練營)，實際上要如何訓練各種冒險者由各種訓練營來實作，
-例如說弓箭手訓練營專門訓練弓箭手，鬥士訓練營產生鬥士。如此一來，如果想要增加冒險者的類別，只要新增訓練營實體類別，
-而不會改動到抽象的訓練營概念。  
+經過了新手村刻苦的訓練，冒險者終於踏出了村莊，面對不同的怪物，
+冒險者需要選擇不同的戰鬥策略來跟各種怪物戰鬥，例如說一般的小怪物就隨便攻擊就好，
+遇到強一點的怪物可能就需要放技能來造成大量的傷害，遇到刀槍不入的殭屍就用火燒他。  
   
 類別圖：  
 ![Training Camp](image/strategy.gif)  
@@ -18,66 +17,73 @@
  * 冒險者
  */
 public class Adventurer {
-	Weapon weapon;  //不同的武器有不同的攻擊方式(strategy)
+	FlightStrategy flightStrategy;  //不同戰鬥方式效果不同(strategy)
 	/**
-	 * 用武器攻擊
+	 * 攻擊
 	 */
 	public void attack(){
-		if(weapon == null){
-			System.out.println("用拳頭毆打");
+		// 預設為普通攻擊
+		if(flightStrategy == null){
+			flightStrategy = new NormalAttack();
 		}
-		weapon.use();
+		flightStrategy.execute();
 	}
 	
 	/**
 	 * 選擇不同的武器(策略)
 	 */
-	public void choiceWeapon(Weapon weapon){
-		this.weapon = weapon;
+	public void choiceStrategy(FlightStrategy strategy){
+		this.flightStrategy = strategy;
 	}
 }
 
-public interface Weapon {
+
+/**
+ * 戰鬥策略
+ */
+public interface FlightStrategy {
 	/**
-	 * 使用武器攻擊
+	 * 執行戰鬥策略
 	 */
-	void use();
+	void execute();
 }
+
 
 
 /**
- * 武器-弓
+ * 一般攻擊
  */
-public class Bow implements Weapon {
+public class NormalAttack implements FlightStrategy {
 
 	@Override
-	public void use() {
-		System.out.println("射弓箭");
+	public void execute() {
+		System.out.println("使用一般攻擊");		
 	}
 
 }
 
 /**
- * 武器-長劍
+ * 使用技能
  */
-public class LongSword implements Weapon {
-
+public class UseSkill implements FlightStrategy {
 	@Override
-	public void use() {
-		System.out.println("拿劍亂砍");
+	public void execute() {
+		System.out.println("使用超級痛的技能攻擊");		
 	}
-
 }
 
 
-public class Touch implements Weapon {
 
+/**
+ * 使用道具
+ */
+public class UseItem implements FlightStrategy {
 	@Override
-	public void use() {
-		System.out.println("用火燒");
+	public void execute() {
+		System.out.println("使用道具，丟火把");
 	}
-
 }
+
 
 
 public class FlightTest {
@@ -86,26 +92,27 @@ public class FlightTest {
 	public void test(){
 		Adventurer ad = new Adventurer();
 		
-		// 一開始使用長劍
-		ad.choiceWeapon(new LongSword());
-		System.out.println("出現史萊姆");
+		// 史萊姆用一般攻擊就可以
+		System.out.println("出現史萊姆>");
+		ad.choiceStrategy(new NormalAttack());
 		ad.attack();
+		System.out.println();
 		
-		// 出現會飛的敵人，改用弓箭
-		System.out.println("出現會飛的吸血蝙蝠");
-		ad.choiceWeapon(new Bow());
+		// 利害的敵人要用厲害的招式打他
+		System.out.println("非常非常巨大的史萊姆>");
+		ad.choiceStrategy(new UseSkill());
 		ad.attack();
-
-		// 出現不怕刀槍只怕火的敵人，改用火把
-		System.out.println("出現不怕刀槍的殭屍");
-		
+		System.out.println();
+				
+		// 出現不怕刀槍只怕火的敵人，丟道具燒他
+		System.out.println("出現不怕刀槍的殭屍>");
+		ad.choiceStrategy(new UseItem());
+		ad.attack();
 	}
 	
 }
 ```
   
-簡單工廠模式與工廠模式比較：  
-  
-*簡單工廠模式：工廠直接負責管理所有的產品，利用if else 或 switch case判斷式來產生產品。  
-	
-*工廠模式：	工廠提升為一個概念，實際上產生產品的是實作工廠概念的實體工廠。
+策略模式是將演算法(戰鬥策略)用一個類別包裝起來，根據不同的需求將適合的演算法類別傳入後在執行相關的程式碼。  
+如果還記得的話，會發現策略模式的類別圖跟簡單工廠模式幾乎是一樣的，仔細看程式碼，整個架構也都很類似!!!  
+因此下一篇會特地說明一下這兩個模式有什麼異同。
