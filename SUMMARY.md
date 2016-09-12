@@ -5,7 +5,7 @@
 * [工廠模式 Factory](factory.md)
 * [抽象工廠模式 Abstract Factory 1](abstractFactory1.md)
 * [抽象工廠模式 Abstract Factory 2](abstractFactory2.md)
-
+* [策略模式 Strategy](strategy.md) 
 
 * [原型模式 Prototype](prototype.md)
 * [建造者模式 Builder](builder.md)

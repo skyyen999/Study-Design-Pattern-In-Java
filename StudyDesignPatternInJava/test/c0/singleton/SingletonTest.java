@@ -1,4 +1,4 @@
-package c4.singleton;
+package c0.singleton;
 
 import c0.singleton.Singleton;
 
