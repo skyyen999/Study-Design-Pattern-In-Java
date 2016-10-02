@@ -7,7 +7,6 @@
 * [抽象工廠模式 Abstract Factory 2](abstractFactory2.md)
 * [策略模式 Strategy](strategy.md) 
 	* [策略模式與簡單工廠模式有什麼不同?](strategy_SimpleFactory.md) 
-
 * [原型模式 Prototype](prototype.md)
 * [建造者模式 Builder](builder.md)
 * 其他設計模式
