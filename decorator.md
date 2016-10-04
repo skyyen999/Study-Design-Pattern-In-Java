@@ -13,8 +13,13 @@
 那我們就要建立3*2*1=6個子類別，如果可以選的稱號有5種，那要建立的子類別就多達120種。這還沒算上冒險者可以取得重複的稱號的情況，
 例如"強壯的強壯的冒險者"，那要建立的子類別就更多了。  
 
-為了避免上面這種很可怕的事情發生，使用裝飾模式讓各種稱號都變成冒險者的子類別，將冒險者傳入各種稱號子類別中(也就是進行裝飾)使用裝飾模式讓各種稱號都變成冒險者的子類別，將冒險者傳入各種稱號子類別中
-使冒險者的能力隨稱號增加，實現的方法如下面的Code。
+為了避免上面這種很可怕的事情發生，這邊可以使用裝飾模式來處理，首先一樣有一個冒險者介面(Component)來規範冒險者應該會有什麼方法，接著會有繼承
+冒險者的實體類別(ConcreteComponent)例如說弓箭手、槍兵、鬥士等等。接下來將之前那些稱號變成裝飾者介面(Decorator)而且繼承冒險者介面，Decorator中
+規範如何裝飾原本的ConcreteComponent，接著一些繼承Decorator的實際裝飾類別(ConcreteDecorator)則是真正用來裝飾ConcreteComponent的類別，
+也就是使用稱號來增加冒險者的能力。  
+
+實做如下方程式碼所示，我們的冒險者jacky一開始只是一般的小槍兵，只能使用普通的長槍戳人，無法使用任何技能，接下來
+
   
 類別圖：  
 ![Title Decorator](image/decorator.gif)  
@@ -22,74 +27,59 @@
 程式碼：  
 ```
 /**
- * 一般的冒險者
+ * 冒險者介面，規範冒險者應該有的功能
  */
-public class Adventurer {
+public interface Adventurer {	
+	/**
+	 * 攻擊
+	 */
+	 void attack();
+}
+
+
+/**
+ * 冒險者-長槍兵
+ */
+public class Lancer implements Adventurer{
 	// 冒險者的姓名
 	private String name ;
-	
-	public Adventurer(){
-	}
+
 	// 冒險者被創立的時候要有姓名
-	public Adventurer(String name){
+	public Lancer(String name){
 		this.name = name;
 	}
 
-	/**
-	 * 一般攻擊
-	 */
+	// 攻擊
 	public void attack(){
-		System.out.println("攻擊");
-	}
-
-	public String getName(){
-		return this.name;
-	}
-}
-
-
-
-/**
- * 稱號父類別
- */
-public class Title extends Adventurer{
-	protected Adventurer adventurer;
-	/**
-	 * 原本的冒險者被傳進來，增加增號
-	 * @param adventurer
-	 */
-	public Title(Adventurer adventurer){
-		this.adventurer = adventurer;
-	}
-	
-	@Override
-	public void attack(){
-		this.adventurer.attack();
+		System.out.println("長槍攻擊 by " + name);
 	}
 }
 
 
 /**
- * 稱號-燃燒
+ * 稱號介面
  */
-public class Agile extends Title{
-	public Agile(Adventurer adventurer) {
-		super(adventurer);
+public abstract class Title implements Adventurer{
+	/**
+	 * 被裝飾的冒險者
+	 */
+	protected Adventurer adventuerer;
+	
+	public Title(Adventurer adventuerer){
+		this.adventuerer = adventuerer;
 	}
 	
-	// 稱號讓攻擊增加燃燒
 	@Override
 	public void attack(){
-		System.out.print("快速 ");
-		super.attack();
+		adventuerer.attack();
 	}
 }
 
 /**
  * 稱號-強壯
  */
-public class Strong extends Title{	
-	public Strong(Adventurer adventurer) {
+public class TitleStrong extends Title{	
+	public TitleStrong(Adventurer adventurer) {
 		super(adventurer);
 	}
 	
@@ -102,46 +92,85 @@ public class Strong extends Title{
 }
 
 
-
 /**
  * 稱號-敏捷
  */
-public class Agile extends Title{
-	public Agile(Adventurer adventurer) {
-		super(adventurer);
+public class TitleAgile extends Title{	
+
+	public TitleAgile(Adventurer adventuerer) {
+		super(adventuerer);
 	}
-	
+
 	// 稱號讓攻擊變快
 	@Override
 	public void attack(){
 		System.out.print("快速 ");
+		super.adventuerer.attack();
+	}
+
+	// 取得稱號後獲得新的技能
+	public void useFlash(){
+		System.out.println("使用瞬間移動");
+	}
+
+}
+
+
+/**
+ * 稱號-燃燒
+ */
+public class TitleInFire extends Title{
+	public TitleInFire(Adventurer adventurer) {
+		super(adventurer);
+	}
+	
+	// 稱號讓攻擊增加燃燒
+	@Override
+	public void attack(){
+		System.out.print("燃燒 ");
 		super.attack();
+	}
+	
+	public void fireball(){
+		System.out.println("丟火球");
 	}
 }
 
 
-
+/**
+ * 冒險者使用不同稱號來強化-測試
+ */
 public class TitleTest {
 	@Test
 	public void test(){
 		// 一開始沒有任何稱號的冒險者
-		Adventurer adventurer = new Adventurer("Jacky");
-		System.out.println("冒險者Jacky");
-		adventurer.attack();
+		Adventurer lancer = new Lancer("Jacky");
+		System.out.println("---長槍兵Jacky---");
+		lancer.attack();
 		
-		//jacky 變成強壯的冒險者
-		Title sJacky = new Strong(adventurer);
+		System.out.println();	
+		System.out.println("---取得強壯稱號的jacky---");
+		TitleStrong sJacky = new TitleStrong(lancer);
 		sJacky.attack();
-	
-		//jacky 變成燃燒的強壯的冒險者
-		Title fJacky = new InFire(sJacky);
-		fJacky.attack();
+
 		
-		// jacky 增加敏捷稱號
-		Title aJacky = new Agile(fJacky);
+		System.out.println();
+		System.out.println("---取得敏捷稱號的jacky---");
+		TitleAgile aJacky = new TitleAgile(sJacky);
 		aJacky.attack();
+		aJacky.useFlash();
 		
+		System.out.println();
+		System.out.println("---取得燃燒稱號的jacky---");
+		TitleInFire fJacky = new TitleInFire(sJacky);
+		fJacky.attack();
+		fJacky.fireball();	
+		
+		System.out.println("---jacky決定成為一個非常強壯的槍兵---");
+		TitleStrong ssJacky = new TitleStrong(fJacky);
+		ssJacky.attack();
 	}
 }
+
 ```
 

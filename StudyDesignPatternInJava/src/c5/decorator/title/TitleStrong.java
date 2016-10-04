@@ -2,8 +2,8 @@ package c5.decorator.title;
 /**
  * 稱號-強壯
  */
-public class Strong extends Title{	
-	public Strong(Adventurer adventurer) {
+public class TitleStrong extends Title{	
+	public TitleStrong(Adventurer adventurer) {
 		super(adventurer);
 	}
 	

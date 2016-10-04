@@ -1,27 +1,11 @@
 package c5.decorator.title;
 
 /**
- * 一般的冒險者
+ * 冒險者介面，規範冒險者應該有的功能
  */
-public class Adventurer {
-	// 冒險者的姓名
-	private String name ;
-	
-	public Adventurer(){
-	}
-	// 冒險者被創立的時候要有姓名
-	public Adventurer(String name){
-		this.name = name;
-	}
-
+public interface Adventurer {	
 	/**
-	 * 一般攻擊
+	 * 攻擊
 	 */
-	public void attack(){
-		System.out.println("攻擊");
-	}
-
-	public String getName(){
-		return this.name;
-	}
+	 void attack();
 }

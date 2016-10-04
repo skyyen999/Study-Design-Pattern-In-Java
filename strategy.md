@@ -85,7 +85,9 @@ public class UseItem implements FlightStrategy {
 }
 
 
-
+/**
+ * 冒險者選擇不同戰鬥策略-測試
+ */
 public class FlightTest {
 	
 	@Test

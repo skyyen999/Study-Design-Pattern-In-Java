@@ -2,8 +2,8 @@ package c5.decorator.title;
 /**
  * 稱號-燃燒
  */
-public class InFire extends Title{
-	public InFire(Adventurer adventurer) {
+public class TitleInFire extends Title{
+	public TitleInFire(Adventurer adventurer) {
 		super(adventurer);
 	}
 	
@@ -12,5 +12,9 @@ public class InFire extends Title{
 	public void attack(){
 		System.out.print("燃燒 ");
 		super.attack();
+	}
+	
+	public void fireball(){
+		System.out.println("丟火球");
 	}
 }

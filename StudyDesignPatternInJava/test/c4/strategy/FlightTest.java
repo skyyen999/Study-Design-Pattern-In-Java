@@ -6,7 +6,9 @@ import c4.strategy.flight.Adventurer;
 import c4.strategy.flight.NormalAttack;
 import c4.strategy.flight.UseItem;
 import c4.strategy.flight.UseSkill;
-
+/**
+ * 冒險者選擇不同戰鬥策略-測試
+ */
 public class FlightTest {
 	
 	@Test
