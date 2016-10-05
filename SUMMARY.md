@@ -10,6 +10,7 @@
 	* [策略模式與簡單工廠模式有什麼不同?](strategySimpleFactory.md) 
 * [裝飾模式 Decorator](decorator.md)	
 	* [裝飾模式實例-File IO]decoratorFileIO.md)
+* [觀察者模式 Observer](observer.md)	
 * [原型模式 Prototype](prototype.md)
 * [建造者模式 Builder](builder.md)
 * [其他設計模式]others.md)  

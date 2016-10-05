@@ -1,146 +1,59 @@
 # 裝飾模式實例 File IO
   
-####目的：
-* 動態的將功能附加在物件上。
-
-####冒險者各式各樣的稱號
-"風暴降生，不焚者，彌林女王，安達爾人，羅伊納人和先民的女王，七國統治者暨全境守護者、多斯拉克大草原的卡麗熙、碎鐐者、龍之母"，
-前面這一串封號跟裝飾模式其實沒什麼關係。
+####
+這部分參考[深入淺出 設計模式]，最著名的裝飾模式應用，應該就是java.io這套讀寫檔案的API了，這邊取出幾個java.io package內的類別，類別圖如下圖所示，
+右邊的StringBufferInputStream與FileInputStream就如同冒險者故事的槍兵一樣，是一個可以被裝飾的具體類別。左邊的FilterInputStream則是抽象裝飾者，BufferedInputStream與LineNumberInputStream則是實際的裝飾者類別，
+其中BufferedInputStream提供mark跟reset方法，可以讓讀過的檔案再次重讀；LineNumberInputStream可以使用getLineNumber()來取得目前位置的行號。
   
-在遊戲中，冒險者可以透過各種冒險或訓練得到稱號加強本身的能力，例如說"強壯的冒險者"攻擊力比較高，"堅毅的冒險者"生命力比較高，
-"炎龍的冒險者"攻擊的時候可以順便用火燒敵人，在前面的設計中，我們可能新增三個繼承冒險者子類別來實現這樣的設計，
-不過冒險者是可以取得很多稱號的，例如"強壯堅毅敏捷的冒險者"，"強壯飛翔的冒險者"等等各種交差排列組合，如果可以選的稱號有3種，
-那我們就要建立3*2*1=6個子類別，如果可以選的稱號有5種，那要建立的子類別就多達120種。這還沒算上冒險者可以取得重複的稱號的情況，
-例如"強壯的強壯的冒險者"，那要建立的子類別就更多了。  
-
-為了避免上面這種很可怕的事情發生，使用裝飾模式讓各種稱號都變成冒險者的子類別，將冒險者傳入各種稱號子類別中(也就是進行裝飾)使用裝飾模式讓各種稱號都變成冒險者的子類別，將冒險者傳入各種稱號子類別中
-使冒險者的能力隨稱號增加，實現的方法如下面的Code。
+這邊我們自己寫一個簡單的裝飾類別UpperCaseInputStream，功能是將檔案的內容倒著讀出來。  
   
-類別圖：  
-![Title Decorator](image/decorator.gif)  
-   
+![File IO](image/fileIO.gif)  
+
+
 程式碼：  
 ```
 /**
- * 一般的冒險者
+ * 裝飾類別-將讀入的字母轉成大寫
  */
-public class Adventurer {
-	// 冒險者的姓名
-	private String name ;
-	
-	public Adventurer(){
-	}
-	// 冒險者被創立的時候要有姓名
-	public Adventurer(String name){
-		this.name = name;
+public class UpperCaseInputStream extends FilterInputStream{
+
+	public UpperCaseInputStream(InputStream in) {
+		super(in);
 	}
 
-	/**
-	 * 一般攻擊
-	 */
-	public void attack(){
-		System.out.println("攻擊");
-	}
-
-	public String getName(){
-		return this.name;
-	}
-}
-
-
-
-/**
- * 稱號父類別
- */
-public class Title extends Adventurer{
-	protected Adventurer adventurer;
-	/**
-	 * 原本的冒險者被傳進來，增加增號
-	 * @param adventurer
-	 */
-	public Title(Adventurer adventurer){
-		this.adventurer = adventurer;
-	}
-	
 	@Override
-	public void attack(){
-		this.adventurer.attack();
+	public int read() throws IOException {
+		int c = super.read();
+		return (c == -1) ? c : Character.toUpperCase((char)c) ;
 	}
+
 }
 
 
 /**
- * 稱號-燃燒
+ * 裝飾模式實例javaIO-測試
  */
-public class Agile extends Title{
-	public Agile(Adventurer adventurer) {
-		super(adventurer);
-	}
-	
-	// 稱號讓攻擊增加燃燒
-	@Override
-	public void attack(){
-		System.out.print("快速 ");
-		super.attack();
-	}
-}
-
-/**
- * 稱號-強壯
- */
-public class Strong extends Title{	
-	public Strong(Adventurer adventurer) {
-		super(adventurer);
-	}
-	
-	// 稱號讓攻擊力增加
-	@Override
-	public void attack(){
-		System.out.print("猛力 ");
-		super.attack();
-	}
-}
-
-
-
-/**
- * 稱號-敏捷
- */
-public class Agile extends Title{
-	public Agile(Adventurer adventurer) {
-		super(adventurer);
-	}
-	
-	// 稱號讓攻擊變快
-	@Override
-	public void attack(){
-		System.out.print("快速 ");
-		super.attack();
-	}
-}
-
-
-
-public class TitleTest {
+public class JavaIOTest {
 	@Test
-	public void test(){
-		// 一開始沒有任何稱號的冒險者
-		Adventurer adventurer = new Adventurer("Jacky");
-		System.out.println("冒險者Jacky");
-		adventurer.attack();
-		
-		//jacky 變成強壯的冒險者
-		Title sJacky = new Strong(adventurer);
-		sJacky.attack();
-	
-		//jacky 變成燃燒的強壯的冒險者
-		Title fJacky = new InFire(sJacky);
-		fJacky.attack();
-		
-		// jacky 增加敏捷稱號
-		Title aJacky = new Agile(fJacky);
-		aJacky.attack();
-		
+	public void test() throws IOException{
+			// 測試將讀入的字母換成大寫
+			InputStream in = new UpperCaseInputStream(new BufferedInputStream(new FileInputStream("test.txt")));
+			
+			int c;
+			// 這是 BufferedInputStream 提供的mark
+			in.mark(0);
+			while(( c = in.read()) >= 0){
+				System.out.print((char)c);
+			}
+			
+			// 這是 BufferedInputStream 提供的reset
+			in.reset();
+			System.out.println("--------------reset--------------");
+			while( (c = in.read()) >= 0){
+				System.out.print((char)c);
+			}
+			in.close();
+			
 	}
 }
 ```
