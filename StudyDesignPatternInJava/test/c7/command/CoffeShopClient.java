@@ -1,11 +1,11 @@
 package c7.command;
 
-import c7.command.CoffeShop.Barkeep;
-import c7.command.CoffeShop.Chef;
-import c7.command.CoffeShop.DrinkOrder;
-import c7.command.CoffeShop.Order;
-import c7.command.CoffeShop.SnackOrder;
-import c7.command.CoffeShop.Waitress;
+import c7.command.coffeShop.Barkeep;
+import c7.command.coffeShop.Chef;
+import c7.command.coffeShop.DrinkOrder;
+import c7.command.coffeShop.Order;
+import c7.command.coffeShop.SnackOrder;
+import c7.command.coffeShop.Waitress;
 
 /**
  * 冒險者飲料店點餐-測試

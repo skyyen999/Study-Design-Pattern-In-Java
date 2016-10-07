@@ -1,4 +1,4 @@
-package c7.command.CoffeShop;
+package c7.command.coffeShop;
 /**
  * 廚房人員(ConcreteReceiver)
  */

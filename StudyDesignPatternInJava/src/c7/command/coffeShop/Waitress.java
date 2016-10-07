@@ -1,4 +1,4 @@
-package c7.command.CoffeShop;
+package c7.command.coffeShop;
 
 import java.util.ArrayList;
 import java.util.List;

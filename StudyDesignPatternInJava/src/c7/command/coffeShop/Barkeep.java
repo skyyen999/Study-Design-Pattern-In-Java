@@ -1,4 +1,4 @@
-package c7.command.CoffeShop;
+package c7.command.coffeShop;
 /**
  * 搖飲料小弟(ConcreteReceiver)
  */
