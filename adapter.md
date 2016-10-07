@@ -82,4 +82,34 @@ public class AdapterClient {
 ```
 
 上面就是一個轉接器模式的展示，客戶端(Client)需要一個法師(Target)來執行丟火球的動作，不過目前能用的只有弓箭手(Adpatee)，
-幸好經過轉接器(Adapter)的轉接，我們的客戶端也能用弓箭手丟出一個像火球的東西。
+幸好經過轉接器(Adapter)的轉接，我們的客戶端也能用弓箭手丟出一個像火球的東西。  
+  
+  
+以下代碼可以看的出來，裝飾模式與轉接器模式在客戶端的調用是一樣的，差別在於裝飾模式不會改變被裝飾者的介面，
+轉接器則是將被轉接者的介面換成目標介面。
+
+
+```
+/**
+ * 冒險者使用不同稱號來強化-測試(裝飾模式)
+ */
+public class TitleTest {
+	@Test
+	public void test(){
+		System.out.println("---取得強壯稱號的jacky---");
+		TitleStrong sJacky = new TitleStrong(new Lancer("Jacky"));
+		sJacky.attack();
+	}
+}
+
+
+/**
+ * 弓箭手轉接成法師丟火球-測試(轉接器模式)
+ */
+public class AdapterClient {
+	@Test	public void test(){
+		Wizard wizard = new Adapter(new NormalArcher());
+		wizard.fireBall();
+	}
+}
+```
