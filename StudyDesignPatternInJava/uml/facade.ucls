@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.10" icons="false" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="c9.facade.Stereo" project="StudyDesignPatternInJava" 
-    file="/StudyDesignPatternInJava/src/c9/facade/Stereo.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="c09.facade.Stereo" project="StudyDesignPatternInJava" 
+    file="/StudyDesignPatternInJava/src/c09/facade/Stereo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="128" width="106" x="195" y="301"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="c9.facade.Television" project="StudyDesignPatternInJava" 
-    file="/StudyDesignPatternInJava/src/c9/facade/Television.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="c09.facade.Television" project="StudyDesignPatternInJava" 
+    file="/StudyDesignPatternInJava/src/c09/facade/Television.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="108" y="417"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="c9.facade.VedioRoomFacade" project="StudyDesignPatternInJava" 
-    file="/StudyDesignPatternInJava/src/c9/facade/VedioRoomFacade.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="c09.facade.VedioRoomFacade" project="StudyDesignPatternInJava" 
+    file="/StudyDesignPatternInJava/src/c09/facade/VedioRoomFacade.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="348" y="43"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="c9.facade.KTVsystem" project="StudyDesignPatternInJava" 
-    file="/StudyDesignPatternInJava/src/c9/facade/KTVsystem.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="c09.facade.KTVsystem" project="StudyDesignPatternInJava" 
+    file="/StudyDesignPatternInJava/src/c09/facade/KTVsystem.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="112" width="129" x="487" y="301"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -37,8 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="c9.facade.PlayStation3" project="StudyDesignPatternInJava" 
-    file="/StudyDesignPatternInJava/src/c9/facade/PlayStation3.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="c09.facade.PlayStation3" project="StudyDesignPatternInJava" 
+    file="/StudyDesignPatternInJava/src/c09/facade/PlayStation3.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="144" width="106" x="341" y="301"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="c9.facade.VedioRoomFacadeClient" project="StudyDesignPatternInJava" 
-    file="/StudyDesignPatternInJava/test/c9/facade/VedioRoomFacadeClient.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="c09.facade.VedioRoomFacadeClient" project="StudyDesignPatternInJava" 
+    file="/StudyDesignPatternInJava/test/c09/facade/VedioRoomFacadeClient.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="690" y="43"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
