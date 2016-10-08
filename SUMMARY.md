@@ -1,5 +1,6 @@
 ﻿# Summary
 * [物件導向設計基本原則 - SOLID](oodPrinciple.md)	
+* [Gof 23種設計模式列表](gofPatternList.md)
 * [單例模式 Singleton](singleton.md)
 * [簡單工廠模式 Simple Factory](simpleFactory.md)
 * [工廠模式 Factory](factory.md)
@@ -14,6 +15,19 @@
 * [命令模式 Command](command.md)	
 * [轉接器模式 Adpater](adapter.md)
 * [表象模式 Facade](facade.md)
+* [樣版模式 Template](template.md)  
+* [合成模式 Composite](composite.md  
+* [狀態模式 Status](status.md  
+* [代理模式 Proxy](	.md
 
-* [其他設計模式]others.md)  
-	*[]
+* [其他模式]
+	* [迭代器模式 Iterator](iterator.md
+	* [建造者模式 Builder](builder.md
+	* [責任鏈模式 ChainOfResponsibility](chainOfResponsibility.md
+	* [解譯器模式 Interpreter](interpreter.md
+	* [中介者模式 Mediator](mediator.md
+	* [原型模式   Prototype](prototype.md
+	* [橋梁模式   Bridge](bridge.md
+	* [備忘錄模式 Memento](memento.md
+	* [蠅量級模式 Flyweight](flyweight.md
+	* [拜訪者模式 Visitor](visitor.md
