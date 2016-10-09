@@ -1,10 +1,10 @@
-package c10.template;
+package c10.template.maze;
 /**
  * 簡單的迷宮(Concrete)
  */
 public class EazyMaze extends MazeTemplate{
 
-	protected EazyMaze() {
+	public EazyMaze() {
 		super.difficulty = 1; // 沒限制等級
 	}
 

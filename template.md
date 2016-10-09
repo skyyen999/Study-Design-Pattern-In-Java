@@ -105,7 +105,7 @@ public abstract class MazeTemplate {
  * 簡單的迷宮(Concrete)
  */
 public class EazyMaze extends MazeTemplate{
-	protected EazyMaze() {
+	public EazyMaze() {
 		super.difficulty = 1; // 沒限制等級
 	}
 
@@ -124,7 +124,7 @@ public class EazyMaze extends MazeTemplate{
  */
 public class DifficultMaze extends MazeTemplate{
 
-	protected DifficultMaze() {
+	public DifficultMaze() {
 		super.isDoubleMaze = true; // 困難模式有隱藏關卡
 		super.difficulty = 50; // 50級以上才能進入困難迷宮
 	}

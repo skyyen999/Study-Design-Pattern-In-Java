@@ -14,11 +14,11 @@
 * [觀察者模式 Observer](observer.md)	
 * [命令模式 Command](command.md)	
 * [轉接器模式 Adpater](adapter.md)
-* [表象模式 Facade](facade.md)
+* [表象(外觀)模式 Facade](facade.md)
 * [樣版模式 Template](template.md)  
-* [合成模式 Composite](composite.md  
+* [合成模式 Composite](composite.md)  
 * [狀態模式 Status](status.md  
-* [代理模式 Proxy](	.md
+* [代理模式 Proxy](proxy.md
 
 * [其他模式]
 	* [迭代器模式 Iterator](iterator.md
@@ -29,5 +29,5 @@
 	* [原型模式   Prototype](prototype.md
 	* [橋梁模式   Bridge](bridge.md
 	* [備忘錄模式 Memento](memento.md
-	* [蠅量級模式 Flyweight](flyweight.md
+	* [蠅量級(享元)模式 Flyweight](flyweight.md
 	* [拜訪者模式 Visitor](visitor.md

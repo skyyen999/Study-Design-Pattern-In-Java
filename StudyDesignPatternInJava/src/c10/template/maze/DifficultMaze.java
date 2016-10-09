@@ -1,10 +1,10 @@
-package c10.template;
+package c10.template.maze;
 /**
  * 困難的迷宮(Concrete)
  */
 public class DifficultMaze extends MazeTemplate{
 
-	protected DifficultMaze() {
+	public DifficultMaze() {
 		super.isDoubleMaze = true; // 困難模式有隱藏關卡
 		super.difficulty = 50; // 50級以上才能進入困難迷宮
 	}

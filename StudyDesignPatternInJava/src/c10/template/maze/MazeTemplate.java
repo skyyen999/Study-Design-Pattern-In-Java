@@ -1,4 +1,4 @@
-package c10.template;
+package c10.template.maze;
 
 import c10.template.adventurer.Adventurer;
 

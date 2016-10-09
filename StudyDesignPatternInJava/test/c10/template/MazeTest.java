@@ -5,6 +5,9 @@ import org.junit.Test;
 import c10.template.adventurer.Adventurer;
 import c10.template.adventurer.GundamJustice;
 import c10.template.adventurer.Sabar;
+import c10.template.maze.DifficultMaze;
+import c10.template.maze.EazyMaze;
+import c10.template.maze.MazeTemplate;
 
 /**
  * 迷宮測試
