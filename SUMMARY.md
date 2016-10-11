@@ -17,7 +17,7 @@
 * [表象(外觀)模式 Facade](facade.md)
 * [樣版模式 Template](template.md)  
 * [合成模式 Composite](composite.md)  
-* [狀態模式 Status](status.md  
+* [狀態模式 Status](status).md  
 * [代理模式 Proxy](proxy.md
 
 * [其他模式]
