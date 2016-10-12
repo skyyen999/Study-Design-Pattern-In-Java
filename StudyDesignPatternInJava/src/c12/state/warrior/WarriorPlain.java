@@ -57,5 +57,6 @@ public class WarriorPlain {
 			System.out.println("狂怒狀態");
 			//...麻煩自行想像下面還有幾十行才能玩成狀態設定			
 		}
+		//.....這邊假設 if else 總共還有十幾種不同的狀態
 	}
 }

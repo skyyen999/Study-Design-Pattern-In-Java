@@ -19,7 +19,7 @@
 |表象(外觀)模式 Facade]||
 |合成模式 Composite||
 |轉接器模式 Adpater||
-|代理模式 Proxy||
+|代理模式 Proxy|為一個物件提供代理物件|
 |裝飾模式 Decorator||
 |蠅量級(享元)模式 Flyweight||
 |橋梁模式   Bridge||

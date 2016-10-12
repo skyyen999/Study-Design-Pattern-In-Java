@@ -17,9 +17,9 @@
 * [表象(外觀)模式 Facade](facade.md)
 * [樣版模式 Template](template.md)  
 * [合成模式 Composite](composite.md)  
-* [狀態模式 Status](status).md  
-* [代理模式 Proxy](proxy.md
-
+* [狀態模式 Status](status.md)  
+* [代理模式 Proxy](proxy.md)
+* [代理模式 - 保護代理](protectProxy.md)
 * [其他模式]
 	* [迭代器模式 Iterator](iterator.md
 	* [建造者模式 Builder](builder.md
