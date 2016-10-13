@@ -22,8 +22,8 @@
 * [代理模式 - 保護代理](protectProxy.md)
 * [其他模式](Others.md)
 	* [走訪器模式 Iterator](iterator.md)
-	* [建造者模式 Builder](builder.md
-	* [責任鏈模式 ChainOfResponsibility](chainOfResponsibility.md
+	* [建造者模式 Builder](builder.md)
+	* [責任鏈模式 ChainOfResponsibility](chainOfResponsibility.md)
 	* [解譯器模式 Interpreter](interpreter.md
 	* [中介者模式 Mediator](mediator.md
 	* [原型模式   Prototype](prototype.md

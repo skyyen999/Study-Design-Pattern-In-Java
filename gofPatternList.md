@@ -11,31 +11,31 @@
 |抽象工廠模式 Abstract Factory|用一個工廠介面來產生一系列相關的物件，但實際建立哪些物件由實做工廠的子類別來實現|
 |單例模式 Singleton			|保證一個類別只有一個物件，而且要提供存取該物件的統一方法|
 |原型模式   Prototype		||
-|建造者模式 Builder			||
+|建造者模式 Builder			|將一個由各種組件組合的複雜產品建造過程封裝|
 
 ###結構型模式  
 |       模式名稱	        |       			目的 						    | 
 |---------------------------|---------------------------------------------------|
-|表象(外觀)模式 Facade]||
-|合成模式 Composite||
-|轉接器模式 Adpater||
-|代理模式 Proxy|為一個物件提供代理物件|
-|裝飾模式 Decorator||
-|蠅量級(享元)模式 Flyweight||
-|橋梁模式   Bridge||
+|表象(外觀)模式 Facade]		|用一個介面包裝各個子系統，由介面與客戶端做溝通|
+|合成模式 Composite			|處理樹狀結構的資料|
+|轉接器模式 Adpater			||
+|代理模式 Proxy				|為一個物件提供代理物件|
+|裝飾模式 Decorator			||
+|蠅量級(享元)模式 Flyweight	||
+|橋梁模式   Bridge			||
 
 
 ###行為型模式  
 |       模式名稱	        |       			目的 						    | 
 |---------------------------|---------------------------------------------------|
-|命令模式 Command||
-|觀察者模式 Observer||
-|策略模式 Strategy||
-|樣版模式 Template||
-|走訪器模式 Iterator||
-|狀態模式 Status||
-|責任鏈模式 ChainOfResponsibility||
-|解譯器模式 Interpreter||
-|中介者模式 Mediator||
-|備忘錄模式 Memento||
-|拜訪者模式 Visitor||
+|命令模式 Command			|將各種請求(命令Command)封裝成一個物件|
+|觀察者模式 Observer		||
+|策略模式 Strategy			||
+|樣版模式 Template			||
+|走訪器模式 Iterator		|提供方法走訪集合內的物件，走訪過程不需知道集合內部的結構|
+|狀態模式 Status			||
+|責任鏈模式 ChainOfResponsibility|讓不同的物件有機會能處理同一個請求 |
+|解譯器模式 Interpreter		||
+|中介者模式 Mediator		||
+|備忘錄模式 Memento			||
+|拜訪者模式 Visitor			||
