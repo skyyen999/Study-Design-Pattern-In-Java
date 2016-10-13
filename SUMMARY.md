@@ -24,7 +24,7 @@
 	* [走訪器模式 Iterator](iterator.md)
 	* [建造者模式 Builder](builder.md)
 	* [責任鏈模式 ChainOfResponsibility](chainOfResponsibility.md)
-	* [解譯器模式 Interpreter](interpreter.md
+	* [解譯器模式 Interpreter](interpreter.md)
 	* [中介者模式 Mediator](mediator.md
 	* [原型模式   Prototype](prototype.md
 	* [橋梁模式   Bridge](bridge.md

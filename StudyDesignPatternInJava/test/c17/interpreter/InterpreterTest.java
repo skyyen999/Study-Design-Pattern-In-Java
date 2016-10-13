@@ -1,0 +1,27 @@
+package c17.interpreter;
+
+import org.junit.Test;
+
+/**
+ * 解譯器-測試
+ */
+public class InterpreterTest {
+	@Test
+	public void test(){
+		Expression ex ;
+		Context context = new Context();
+		context.setText("A4461 B1341 A676 B1787");
+
+		// A則後面的數字*2，B則後面的數字/2
+		for(String str : context.getText().split("\\s")){
+			// 不同的解譯器代表可以藉由實作更多Expression的字類別來擴充解譯器能力
+			if(str.charAt(0) == 'A'){
+				ex = new UpExpression();
+			} else {
+				ex = new DownExpression();
+			}
+			
+			ex.interpret(str);
+		}
+	}
+}
