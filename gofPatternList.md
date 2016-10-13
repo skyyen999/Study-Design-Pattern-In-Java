@@ -32,7 +32,7 @@
 |觀察者模式 Observer||
 |策略模式 Strategy||
 |樣版模式 Template||
-|迭代器模式 Iterator||
+|走訪器模式 Iterator||
 |狀態模式 Status||
 |責任鏈模式 ChainOfResponsibility||
 |解譯器模式 Interpreter||

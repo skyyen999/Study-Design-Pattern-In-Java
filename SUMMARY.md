@@ -21,7 +21,7 @@
 * [代理模式 Proxy](proxy.md)
 * [代理模式 - 保護代理](protectProxy.md)
 * [其他模式](Others.md)
-	* [走訪器模式 Iterator](iterator.md
+	* [走訪器模式 Iterator](iterator.md)
 	* [建造者模式 Builder](builder.md
 	* [責任鏈模式 ChainOfResponsibility](chainOfResponsibility.md
 	* [解譯器模式 Interpreter](interpreter.md

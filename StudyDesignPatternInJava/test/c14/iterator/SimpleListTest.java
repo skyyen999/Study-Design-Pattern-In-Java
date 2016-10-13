@@ -4,6 +4,8 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
+import c14.iterator.simpleList.SimpleList;
+
 /**
  * simpleList-測試Iterator
  */

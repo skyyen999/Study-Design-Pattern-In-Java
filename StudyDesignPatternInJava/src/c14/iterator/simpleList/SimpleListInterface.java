@@ -1,4 +1,4 @@
-package c14.iterator;
+package c14.iterator.simpleList;
 
 /**
  * 自己做一個簡單的list

@@ -1,4 +1,4 @@
-package c14.iterator;
+package c14.iterator.simpleList;
 
 import java.util.Iterator;
 /**
