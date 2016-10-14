@@ -1,4 +1,4 @@
-package c17.interpreter;
+package c17.interpreter.numberInterpreter;
 /**
  * 共用解譯器類別
  */

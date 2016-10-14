@@ -1,4 +1,4 @@
-package c15.builder.RobotBuilder;
+package c15.builder.robotBuilder;
 
 /**
  * 鋼彈建造者類別(ConcreteBuilder)

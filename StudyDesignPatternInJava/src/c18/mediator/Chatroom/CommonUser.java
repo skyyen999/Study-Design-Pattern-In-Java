@@ -1,4 +1,4 @@
-package c18.mediator;
+package c18.mediator.Chatroom;
 /**
  * 可以發送訊息的類別(ConcreteColleague)
  */

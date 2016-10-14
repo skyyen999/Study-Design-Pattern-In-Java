@@ -1,4 +1,4 @@
-package c15.builder.RobotBuilder;
+package c15.builder.robotBuilder;
 
 /**
  * 機器人建造器抽像類別(AbstractBuilder)

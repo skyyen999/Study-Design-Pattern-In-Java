@@ -2,9 +2,9 @@ package c15.builder;
 
 import org.junit.Test;
 
-import c15.builder.RobotBuilder.Director;
-import c15.builder.RobotBuilder.GundamBuilder;
-import c15.builder.RobotBuilder.IRobot;
+import c15.builder.robotBuilder.Director;
+import c15.builder.robotBuilder.GundamBuilder;
+import c15.builder.robotBuilder.IRobot;
 
 /**
  * 建造者模式-測試

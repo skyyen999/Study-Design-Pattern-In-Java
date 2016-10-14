@@ -1,4 +1,4 @@
-package c18.mediator;
+package c18.mediator.Chatroom;
 /**
  * 中介者介面(Mediator)
  */

@@ -2,6 +2,11 @@ package c17.interpreter;
 
 import org.junit.Test;
 
+import c17.interpreter.numberInterpreter.Context;
+import c17.interpreter.numberInterpreter.DownExpression;
+import c17.interpreter.numberInterpreter.Expression;
+import c17.interpreter.numberInterpreter.UpExpression;
+
 /**
  * 解譯器-測試
  */

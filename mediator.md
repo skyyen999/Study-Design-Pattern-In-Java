@@ -82,12 +82,12 @@ public abstract class Messager {
 	}
 	
 	// 發訊息給每個人
-	void sendToAll(String message){
+	public void sendToAll(String message){
 		mediator.sendToAll(name,message);
 	}
 	
 	// 發訊息給某人
-	void send(String message, Messager to){
+	public void send(String message, Messager to){
 		mediator.send(message, this.name , to);
 	};
 

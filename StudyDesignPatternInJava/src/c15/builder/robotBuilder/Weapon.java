@@ -1,4 +1,4 @@
-package c15.builder.RobotBuilder;
+package c15.builder.robotBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;

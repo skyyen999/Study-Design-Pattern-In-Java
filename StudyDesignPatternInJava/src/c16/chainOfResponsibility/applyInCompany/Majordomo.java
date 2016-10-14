@@ -1,4 +1,4 @@
-package c16.chainOfResponsibility;
+package c16.chainOfResponsibility.applyInCompany;
 
 /**
  * 總監

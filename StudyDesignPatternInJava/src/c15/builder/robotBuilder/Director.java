@@ -1,4 +1,4 @@
-package c15.builder.RobotBuilder;
+package c15.builder.robotBuilder;
 
 /**
  * 指揮如何組裝機器人(Director)

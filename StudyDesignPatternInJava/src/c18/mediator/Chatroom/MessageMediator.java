@@ -1,4 +1,4 @@
-package c18.mediator;
+package c18.mediator.Chatroom;
 
 import java.util.ArrayList;
 import java.util.List;

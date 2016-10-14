@@ -1,4 +1,4 @@
-package c17.interpreter;
+package c17.interpreter.numberInterpreter;
 /**
  * 待解譯的資料
  */

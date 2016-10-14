@@ -1,5 +1,5 @@
 
-package c15.builder.RobotBuilder;
+package c15.builder.robotBuilder;
 /**
  * 鋼彈-實體機器人
  */

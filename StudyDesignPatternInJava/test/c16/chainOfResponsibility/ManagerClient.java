@@ -1,4 +1,11 @@
 package c16.chainOfResponsibility;
+
+import c16.chainOfResponsibility.applyInCompany.ApplyRequest;
+import c16.chainOfResponsibility.applyInCompany.CommonManager;
+import c16.chainOfResponsibility.applyInCompany.GeneralManager;
+import c16.chainOfResponsibility.applyInCompany.Majordomo;
+import c16.chainOfResponsibility.applyInCompany.Manager;
+
 /**
  * 公司請假，加薪簽核-測試
  * @author Yan

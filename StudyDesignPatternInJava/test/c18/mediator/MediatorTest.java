@@ -1,6 +1,11 @@
 package c18.mediator;
 
 import org.junit.Test;
+
+import c18.mediator.Chatroom.CommonUser;
+import c18.mediator.Chatroom.MessageMediator;
+import c18.mediator.Chatroom.Messager;
+import c18.mediator.Chatroom.VIPUser;
 /**
  * 中介者模式-測試
  */
