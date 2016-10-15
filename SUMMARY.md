@@ -27,7 +27,7 @@
 	* [解譯器模式 Interpreter](interpreter.md)
 	* [中介者模式 Mediator](mediator.md)
 	* [原型模式   Prototype](prototype.md)
-	* [橋梁模式   Bridge](bridge.md
-	* [備忘錄模式 Memento](memento.md
+	* [橋梁模式   Bridge](bridge.md)
+	* [備忘錄模式 Memento](memento.md)
 	* [蠅量級(享元)模式 Flyweight](flyweight.md
 	* [拜訪者模式 Visitor](visitor.md
