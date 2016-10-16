@@ -1,5 +1,5 @@
 # Gof 23種設計模式列表
-本來是想要照這樣分類做為目錄，不過讀完 ***深入淺出：設計模式*** 後發現隨著程式的演進，
+本來是想要照這樣分類做為目錄，不過讀完 **深入淺出：設計模式** 後發現隨著程式的演進，
 有些模式已經比較少被使用，有些模式已經被很多程式語言內化成為語言特性了，這個目錄分類主要是方便快速瀏覽
 設計模式的設計目的。	
 	
@@ -24,18 +24,17 @@
 |[蠅量級(享元)模式 Flyweight](flyweight.md)|大量物件共享一些共同性質，降低系統的負荷|
 |[橋梁模式   Bridge](bridge.md)|將抽象介面與實作類別切開，使兩者可以各自變化而不影響彼此|
 
-
 ###行為型模式  
 |       模式名稱	        |       			目的 						    | 
 |---------------------------|---------------------------------------------------|
 |[命令模式 Command](command.md)|將各種請求(命令Command)封裝成一個物件|
 |[觀察者模式 Observer](observer.md)|處理一個物件對應多個物件之間的連動關係|
-|[策略模式 Strategy](strategy.md)||
-|[樣版模式 Template](template.md)||
+|[策略模式 Strategy](strategy.md)|將各種可以互換的演算法(策略)包裝成一個類別|
+|[樣版模式 Template](template.md)|目的定義一套演算法的架構，但是細節可延遲到子類別再決定|
 |[走訪器模式 Iterator](iterator.md)|提供方法走訪集合內的物件，走訪過程不需知道集合內部的結構|
-|[狀態模式 Status](status.md)||
-|[責任鏈模式 ChainOfResponsibility](chainOfResponsibility.md)|讓不同的物件有機會能處理同一個請求 |
-|[解譯器模式 Interpreter](interpreter.md)||
-|[中介者模式 Mediator](mediator.md)||
+|[狀態模式 Status](status.md)|將物件的狀態封裝成類別，讓此物件隨著狀態改變時能有不同的行為|
+|[責任鏈模式 ChainOfResponsibility](chainOfResponsibility.md)|讓不同的物件有機會能處理同一個請求|
+|[解譯器模式 Interpreter](interpreter.md)|定義一個語言與其文法，使用一個解譯器來表示這個語言的敘述|
+|[中介者模式 Mediator](mediator.md)|當有多個物件之間有交互作用，使用一個中介物件來負責這些物件的交互|
 |[備忘錄模式 Memento](memento.md)|將一個物件的內部狀態儲存在另外一個備忘錄物件中，備忘錄物件可用來還原物件狀態|
-|[拜訪者模式 Visitor](visitor.md)||
+|[拜訪者模式 Visitor](visitor.md)|使用不同的拜訪者使集合(collection)中的元素行為與元素類別切離|
