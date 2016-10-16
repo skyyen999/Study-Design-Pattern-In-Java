@@ -1,7 +1,7 @@
 package c03.abstractfactory.factory;
 
 /**
- * 衣服類別
+ * 上衣介面(Product)
  */
 public abstract class Clothes {
 	protected int def;	// 防禦力

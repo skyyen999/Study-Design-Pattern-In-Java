@@ -8,8 +8,12 @@ import c03.abstractfactory.factory.Clothes;
 import c03.abstractfactory.factory.EquipFactory;
 import c03.abstractfactory.factory.WarriorEquipFactory;
 import c03.abstractfactory.factory.Weapon;
+import c03.abstractfactory.village.Adventurer;
+import c03.abstractfactory.village.ArcherTrainingCamp;
+import c03.abstractfactory.village.TrainingCamp;
+import c03.abstractfactory.village.WarriorTrainingCamp;
 /**
- * 裝備工廠測試
+ * 抽像工廠模式-測試
  */
 public class EquipFactoryTest {
 	private EquipFactory equipFactory;
@@ -41,5 +45,18 @@ public class EquipFactoryTest {
 		Assert.assertEquals(10, longSword.getAtk());
 		Assert.assertEquals(1, longSword.getRange());
 		
+		
+		// 弓箭手訓練營
+		TrainingCamp camp = new ArcherTrainingCamp();
+		// 訓練弓箭手
+		Adventurer archer = camp.trainAdventurer();
+		
+		// 鬥士訓練營
+		camp = new WarriorTrainingCamp();
+		// 訓練鬥士
+		Adventurer warrior = camp.trainAdventurer();
+		
+		archer.display();
+		warrior.display();
 	}
 }

@@ -1,7 +1,7 @@
 package c03.abstractfactory.factory;
 
 /**
- * 武器類別
+ * 武器介面(Product)
  */
 public abstract class Weapon {
 	protected int atk;		// 攻擊力

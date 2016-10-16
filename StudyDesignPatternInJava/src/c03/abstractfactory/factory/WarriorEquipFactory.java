@@ -1,6 +1,6 @@
 package c03.abstractfactory.factory;
 /**
- * 專門生產鬥士裝備的工廠
+ * 專門生產鬥士裝備的工廠(ConcreteFactory)
  */
 public class WarriorEquipFactory implements EquipFactory{
 

@@ -1,6 +1,6 @@
 package c03.abstractfactory.factory;
 /**
- * 衣服-皮甲(弓箭手用)
+ * 皮甲(ConcreteProduct)-弓箭手上衣
  */
 public class Leather extends Clothes {
 	

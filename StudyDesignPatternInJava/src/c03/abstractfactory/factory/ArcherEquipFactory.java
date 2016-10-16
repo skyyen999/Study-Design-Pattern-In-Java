@@ -1,6 +1,6 @@
 package c03.abstractfactory.factory;
 /**
- * 專門生產弓箭手裝備的工廠
+ * 專門生產弓箭手裝備的工廠(ConcreteFactory)
  */
 public class ArcherEquipFactory implements EquipFactory{
 

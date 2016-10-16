@@ -9,7 +9,7 @@ import c02.factory.village.WarriorTrainingCamp;
 
 import org.junit.Assert;
 /**
- * 冒險者訓練營測試
+ * 工廠模式-測試
  */
 public class TrainingCampTest {
 	@Test

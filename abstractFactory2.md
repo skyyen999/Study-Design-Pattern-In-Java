@@ -1,10 +1,11 @@
-# 抽象工廠模式 Abstract Factory Pattern 1
+# 抽象工廠模式 Abstract Factory Pattern 2
 現在已經有各式各樣的工廠可以生產裝備，接下來就看看實際上要怎麼給冒險者裝備。  
 首先要先為冒險者增加兩個屬性，武器Weapon，衣服Clothes。  
 接下來訓練營內必須要有對應的工廠來生產對應的裝備。   
 最後呼叫的客戶端程式與[工廠模式 Factory](factory.md)一樣，不過現在冒險者們在訓練後就會獲得基礎裝備了。
   
-程式碼：  
+####測試碼：  
+跟抽象工廠模式沒關係的冒險者，這些只是為了測試用  
 ```
 //工廠與各種裝備同上頁
 
@@ -120,13 +121,43 @@ public class Warrior extends Adventurer {
 		System.out.println();
 	}
 }
-
+```
+測試碼：
+```
 /**
- * 冒險者訓練營加上裝備工廠測試
+ * 抽像工廠模式-測試
  */
-public class TrainingCampWithFactoryTest {
+public class EquipFactoryTest {
+	private EquipFactory equipFactory;
 	@Test
-	public void test(){
+	/**
+	 * 測試工廠是否能正確生產裝備
+	 */
+	public void equipFactoryTest(){
+        System.out.println("==========抽像工廠模式測試==========");
+		
+		// 幫弓箭手生產裝備
+		equipFactory = new ArcherEquipFactory();
+		Clothes archerLeather = equipFactory.productArmor();
+		Weapon archerBow = equipFactory.productWeapon();
+
+		// 皮甲的防禦應該是5，弓的攻擊為10，範圍為10
+		Assert.assertEquals(5, archerLeather.getDef());
+		Assert.assertEquals(10, archerBow.getAtk());
+		Assert.assertEquals(10, archerBow.getRange());
+
+		
+		// 幫鬥士生產裝備
+		equipFactory = new WarriorEquipFactory();
+		Clothes armor = equipFactory.productArmor();
+		Weapon longSword = equipFactory.productWeapon();
+		
+		// 盔甲的防禦應該是10，弓的攻擊為10，範圍為1
+		Assert.assertEquals(10, armor.getDef());
+		Assert.assertEquals(10, longSword.getAtk());
+		Assert.assertEquals(1, longSword.getRange());
+		
+		
 		// 弓箭手訓練營
 		TrainingCamp camp = new ArcherTrainingCamp();
 		// 訓練弓箭手
@@ -142,9 +173,13 @@ public class TrainingCampWithFactoryTest {
 	}
 }
 ```
-  
-工廠模式與抽像工廠模式比較：  
-  
-*工廠模式：工廠模式注重的是如何產生一個物件，例如弓箭手訓練營只要負責管理產出弓箭手的過程。  
-	
-*抽像工廠模式：	抽像工廠模式注重在產品的抽象關係，像武器與衣服本來是扯不上關係的兩種物品，不過這兩種物品都是冒險者的裝備，因此他們有這個層抽象關係。
+測試結果：  
+```
+==========抽像工廠模式測試==========
+我是弓箭手，裝備:
+  Bow atk:10 range:10
+  Leather def:5
+我是弓箭手，裝備:
+  LongSword atk:10 range:1
+  Armor def:10  
+``` 

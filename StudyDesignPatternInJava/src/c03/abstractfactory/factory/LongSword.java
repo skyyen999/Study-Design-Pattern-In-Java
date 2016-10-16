@@ -1,6 +1,6 @@
 package c03.abstractfactory.factory;
 /**
- * 武器-長劍
+ * 長劍(ConcreteProduct)-鬥士武器
  */
 public class LongSword extends Weapon {
 
