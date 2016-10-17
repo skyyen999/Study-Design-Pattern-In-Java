@@ -1,6 +1,6 @@
 package c12.state.warrior;
 /**
- * 隨著時間變化的狀態(State)，HP小於30%，背水一戰狀態
+ * 隨著HP變化的狀態(ConcreteState)，HP小於30%，背水一戰狀態
  */
 public class DesperateState implements State{
 	/**

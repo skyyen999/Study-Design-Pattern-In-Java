@@ -3,18 +3,23 @@
 ####目的：將物件的狀態封裝成類別，讓此物件隨著狀態改變時能有不同的行為
   
 ###所謂的鬥士!就是生命越低越有戰鬥力
-很多事物的行為模式會隨著狀態而改變，例如說毛毛蟲只能在地上爬，之後變成蛹就入定了，破蛹而出變蝴蝶不但可以爬還可以飛，一般來說
+很多事物的行為模式會隨著狀態而改變，例如說毛毛蟲只能在地上爬，之後變成蛹就入定不動了，破蛹而出變蝴蝶不但可以爬還可以飛，一般來說
 我們會用if else或是switch case，不過根據書上的說法，有些人不喜歡看到一大堆if esle或switch case這種判斷式，因此就將會改變的狀態
-封裝成類別，這樣可以減少一些判斷式，也可以讓類別的責任由狀態類別分擔。   
+封裝成類別，這樣可以減少一些判斷式，也可以讓責任由狀態類別分擔。   
   
-鬥士是一種很有趣的冒險者，他的戰鬥能力會隨著生命值HP的下降而提升，首先一開始HP>70%時候一切正常，
-HP降低到70%以下時，會進入狂怒的狀態，如果HP進一步降到30%以下，則進入背水一戰狀態，以上狀態都回復生命，
-如果HP降到0的時候，鬥士就會進入無法戰鬥的狀態，而且無法恢復生命值。以下WarriorPlain實作上面敘述，假設
-move()方法內的if else有十幾種，而且每個條件都要執行數十行的程式，這種情況下就可以考慮使用狀態模式。  
+一個狀態模式首先會有一個背景類別(Context)，Context的行為模式會隨著狀態(State)而改變，因此我們也需要一個狀態介面(State)跟其他
+實體狀態類別(ConcreteState)。
+  
+鬥士(Context)  是一種很有趣的冒險者，他的戰鬥能力(State)會隨著生命值HP的下降而提升，首先一開始HP>70%時候一切正常，
+HP降低到70%以下時，會進入狂怒的狀態(ConcreteState)，如果HP進一步降到30%以下，則進入背水一戰狀態(ConcreteState)，
+以上狀態都可以回復生命，如果HP降到0的時候，鬥士就會進入無法戰鬥的狀態(ConcreteState)，而且無法恢復生命值。
+
+以下WarriorPlain實作上面敘述，假設move()方法內的if else有十幾種，
+而且每個條件都要執行數十行的程式，這種情況下就可以考慮使用狀態模式。  
   
 ```
 /**
- * 鬥士類別(Context)
+ * 沒使用策略模式的鬥士類別
  */
 public class WarriorPlain {
 	private int hp ; 		// 生命值(直接以0~100表示)
@@ -77,8 +82,9 @@ public class WarriorPlain {
   
 改用狀態模式，鬥士為Context類別，各種生命值之下的狀態為State，當Context產生變化時，State也隨之變化，因此Context的行為模式就改變了。
      
-類別圖：  
-![Warrior](image/state.gif)  
+###類別圖
+![State Class Diagram](image/state.gif)  
+Conext類別
 ```
 /**
  * 鬥士類別(Context)
@@ -129,11 +135,11 @@ public class Warrior {
 		return this.hp;
 	}
 }
-
-
-
+```
+狀態State界面與實作類別
+```
 /**
- * 隨著生命值變化的狀態(State)
+ * 隨著HP變化的狀態(State)
  */
 public interface State {
 	/**
@@ -145,7 +151,7 @@ public interface State {
 
 
 /**
- * 隨著時間變化的狀態(State)，HP > 70% ， 一般狀態　
+ * 隨著HP變化的狀態(ConcreteState)，HP > 70% ， 一般狀態　
  */
 public class NormalState implements State{
 	/**
@@ -165,7 +171,7 @@ public class NormalState implements State{
 
 
 /**
- * 隨著時間變化的狀態(State)，HP < 70% ， 狂怒狀態　
+ * 隨著HP變化的狀態(ConcreteState)，HP < 70% ， 狂怒狀態　
  */
 public class FuryState implements State{
 	/**
@@ -189,7 +195,7 @@ public class FuryState implements State{
 
 
 /**
- * 隨著時間變化的狀態(State)，HP小於30%，背水一戰狀態
+ * 隨著HP變化的狀態(ConcreteState)，HP小於30%，背水一戰狀態
  */
 public class DesperateState implements State{
 	/**
@@ -212,7 +218,7 @@ public class DesperateState implements State{
 }
 
 /**
- * 隨著時間變化的狀態(State)，HP = 0% ， 無法戰鬥狀態　
+ * 隨著HP變化的狀態(ConcreteState)，HP = 0% ， 無法戰鬥狀態　
  */
 public class UnableState implements State{
 	/**
@@ -225,6 +231,42 @@ public class UnableState implements State{
 	}
 }
 
+```  
+測試碼
+```  
+/**
+ * 狀態模式-測試
+ */
+public class WarriorTest {
+	Warrior warrior = new Warrior();
+	
+	@Test 
+	public void test(){
+		System.out.println("============狀態模式測試============");
+		warrior.move();
+		
+		warrior.getDamage(30); // 受到傷害
+		warrior.move();
+		warrior.getDamage(50); // 受到傷害
+		warrior.move();
+		
+		warrior.heal(120); 		// 接受治療
+		warrior.move();
+
+		warrior.getDamage(110);
+		warrior.move();
+		warrior.heal(20); 		// 接受治療， hp = 0的時候治療無效
+	}
+}
+```  
+測試結果
+```  
+============狀態模式測試============
+HP=100 , no buff 
+HP=70 ,狂怒狀態 傷害增加30%
+HP=20 ,背水一戰 傷害增加50%, 防禦增加50%
+HP=100 , no buff 
+HP=0 , 無法戰鬥
 ```  
 
 

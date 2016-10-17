@@ -32,7 +32,7 @@
 |[策略模式 Strategy](strategy.md)|將各種可以互換的演算法(策略)包裝成一個類別|
 |[樣版模式 Template](template.md)|目的定義一套演算法的架構，但是細節可延遲到子類別再決定|
 |[走訪器模式 Iterator](iterator.md)|提供方法走訪集合內的物件，走訪過程不需知道集合內部的結構|
-|[狀態模式 Status](status.md)|將物件的狀態封裝成類別，讓此物件隨著狀態改變時能有不同的行為|
+|[狀態模式 State](state.md)|將物件的狀態封裝成類別，讓此物件隨著狀態改變時能有不同的行為|
 |[責任鏈模式 ChainOfResponsibility](chainOfResponsibility.md)|讓不同的物件有機會能處理同一個請求|
 |[解譯器模式 Interpreter](interpreter.md)|定義一個語言與其文法，使用一個解譯器來表示這個語言的敘述|
 |[中介者模式 Mediator](mediator.md)|當有多個物件之間有交互作用，使用一個中介物件來負責這些物件的交互|

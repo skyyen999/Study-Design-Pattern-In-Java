@@ -1,6 +1,6 @@
 package c12.state.warrior;
 /**
- * 隨著時間變化的狀態(State)，HP = 0% ， 無法戰鬥狀態　
+ * 隨著HP變化的狀態(ConcreteState)，HP = 0% ， 無法戰鬥狀態　
  */
 public class UnableState implements State{
 	/**

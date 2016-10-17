@@ -1,6 +1,6 @@
 package c12.state.warrior;
 /**
- * 隨著生命值變化的狀態(State)
+ * 隨著HP變化的狀態(State)
  */
 public interface State {
 	/**

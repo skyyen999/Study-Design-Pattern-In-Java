@@ -1,6 +1,8 @@
 # 命令模式 Command Pattern
   
-####目的：將各種請求(命令Command)封裝成一個物件，客戶端(Client)不直接發送請求給命令執行者(Receiver)，而是將請求統一交給命令接收者(Invoker)轉交給命令執行者，接收者可將請求排成工作序列，也可以進行尚未執行的請求
+####目的：將各種請求(命令Command)封裝成一個物件
+* 客戶端(Client)不直接發送請求給命令執行者(Receiver)，而是將請求統一交給命令接收者(Invoker)轉交給命令執行者，
+接收者可將請求排成工作序列，也可以進行尚未執行的請求
 
   
 ###解完任務任務後到咖啡廳來一杯吧
@@ -10,13 +12,14 @@
 點心廚師負責做出美味的點心，因此廚房人員不必直接與冒險者接觸可以專心工作。另外在點餐時，服務生小妹會先詢問目前材料是否
 足夠，不夠的話就不需要麻煩廚房人員了，多才多藝的服務生小妹在訂單還沒送出前，也可以接受冒險者的要求取消訂單。
 
-類別圖：  
-![Command Strategy](image/command.gif)  
+###類別圖  
+![Command Class Diagram](image/command.gif)  
    
-程式碼：  
+###程式碼
+Receiver介面與實作類別
 ```
 /**
- * 廚房人員(ConcreteReceiver)
+ * 廚房人員(Receiver)
  */
 public interface KitchenWoker {
 	/**
@@ -50,8 +53,10 @@ public class Chef implements KitchenWoker {
 	}
 
 }
+```
+Command介面與實作類別
 
-
+```
 /**
  * 訂單(Command)
  */
@@ -95,8 +100,9 @@ public class SnackOrder extends Order {
 		super.name = "snackOrder";
 	}
 }
-
-
+```
+Invoker類別
+```
 /**
  * 服務生(Invoker)
  */
@@ -157,13 +163,11 @@ public class Waitress {
 
 }
 
-
-
-/**
- * 冒險者飲料店點餐-測試
- */
-public class CoffeShopClient {
+```
+測試碼  
+```
 	public static void main(String[] args) {
+		System.out.println("============命令模式測試============");
 		//開店前準備
 		Chef snackChef = new Chef();
 		Barkeep  barkeep = new Barkeep ();
@@ -177,8 +181,7 @@ public class CoffeShopClient {
 		cuteGirl.setOrder(snackOrder);
 		cuteGirl.setOrder(drinkOrder);
 		cuteGirl.setOrder(drinkOrder);
-		// 點心賣完了
-		cuteGirl.setOrder(snackOrder);
+
 		// 飲料還沒賣完
 		cuteGirl.setOrder(drinkOrder);
 		// 取消一個點心
@@ -189,10 +192,22 @@ public class CoffeShopClient {
 		System.out.println();
 		// 點餐完成，送到後面廚房通知廚師與搖飲料小弟
 		cuteGirl.notifyBaker();
+		
+		System.out.println("---點心賣完了---");
+		// 點心賣完了
+		cuteGirl.setOrder(snackOrder);
 	}
-}
 ```
-  
-策略模式是將演算法(戰鬥策略)用一個類別包裝起來，根據不同的需求將適合的演算法類別傳入後在執行相關的程式碼。  
-如果還記得的話，會發現策略模式的類別圖跟簡單工廠模式幾乎是一樣的，仔細看程式碼，整個架構也都很類似!!!  
-因此下一篇會特地說明一下這兩個模式有什麼異同。
+測試結果
+```
+============命令模式測試============
+
+取出麵包->美乃滋塗上滿滿的麵包->丟進烤箱->灑上可以吃的裝飾->點心完成
+拿出杯子->加滿冰塊->把飲料倒進杯子->飲料完成
+拿出杯子->加滿冰塊->把飲料倒進杯子->飲料完成
+拿出杯子->加滿冰塊->把飲料倒進杯子->飲料完成
+取出麵包->美乃滋塗上滿滿的麵包->丟進烤箱->灑上可以吃的裝飾->點心完成
+---點心賣完了---
+點心賣完了
+
+```

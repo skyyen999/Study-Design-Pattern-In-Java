@@ -1,6 +1,6 @@
 package c10.template.maze;
 /**
- * 簡單的迷宮(Concrete)
+ * 簡單的迷宮(ConcreteTemplate)
  */
 public class EazyMaze extends MazeTemplate{
 

@@ -5,13 +5,14 @@ import org.junit.Test;
 import c12.state.warrior.Warrior;
 
 /**
- * 鬥是隨著HP變化而有不同的行為模式-測試
+ * 狀態模式-測試
  */
 public class WarriorTest {
 	Warrior warrior = new Warrior();
 	
 	@Test 
 	public void test(){
+		System.out.println("============狀態模式測試============");
 		warrior.move();
 		
 		warrior.getDamage(30); // 受到傷害

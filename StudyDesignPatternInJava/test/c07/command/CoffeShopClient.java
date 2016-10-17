@@ -8,10 +8,11 @@ import c07.command.coffeShop.SnackOrder;
 import c07.command.coffeShop.Waitress;
 
 /**
- * 冒險者飲料店點餐-測試
+ * 命令模式-測試
  */
 public class CoffeShopClient {
 	public static void main(String[] args) {
+		System.out.println("============命令模式測試============");
 		//開店前準備
 		Chef snackChef = new Chef();
 		Barkeep  barkeep = new Barkeep ();
@@ -25,8 +26,7 @@ public class CoffeShopClient {
 		cuteGirl.setOrder(snackOrder);
 		cuteGirl.setOrder(drinkOrder);
 		cuteGirl.setOrder(drinkOrder);
-		// 點心賣完了
-		cuteGirl.setOrder(snackOrder);
+
 		// 飲料還沒賣完
 		cuteGirl.setOrder(drinkOrder);
 		// 取消一個點心
@@ -37,5 +37,9 @@ public class CoffeShopClient {
 		System.out.println();
 		// 點餐完成，送到後面廚房通知廚師與搖飲料小弟
 		cuteGirl.notifyBaker();
+		
+		System.out.println("---點心賣完了---");
+		// 點心賣完了
+		cuteGirl.setOrder(snackOrder);
 	}
 }

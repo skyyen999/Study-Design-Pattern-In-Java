@@ -1,6 +1,6 @@
 package c10.template.maze;
 /**
- * 困難的迷宮(Concrete)
+ * 困難的迷宮(ConcreteTemplate)
  */
 public class DifficultMaze extends MazeTemplate{
 

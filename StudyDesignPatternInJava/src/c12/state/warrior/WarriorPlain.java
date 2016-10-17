@@ -1,7 +1,7 @@
 package c12.state.warrior;
 
 /**
- * 鬥士類別(Context)
+ * 沒使用策略模式的鬥士類別
  */
 public class WarriorPlain {
 	private int hp ; 		// 生命值(直接以0~100表示)

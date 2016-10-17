@@ -10,7 +10,7 @@ import c10.template.maze.EazyMaze;
 import c10.template.maze.MazeTemplate;
 
 /**
- * 迷宮測試
+ * 樣版模式-測試
  */
 public class MazeTest {
 	Adventurer sabar = new Sabar(); // 等級10的劍士
@@ -21,9 +21,10 @@ public class MazeTest {
 	
 	@Test
 	public void test(){
+		System.out.println("============樣版模式測試============");
+
 		System.out.println(" =====困難迷宮======");
-		sabar = hardMaze.adventure(sabar);
-		
+		sabar = hardMaze.adventure(sabar);	
 		System.out.println(" =====簡單迷宮練功======");
 		sabar = easyMaze.adventure(sabar);
 		

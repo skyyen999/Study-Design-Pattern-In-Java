@@ -1,6 +1,6 @@
 package c12.state.warrior;
 /**
- * 隨著時間變化的狀態(State)，HP > 70% ， 一般狀態　
+ * 隨著HP變化的狀態(ConcreteState)，HP > 70% ， 一般狀態　
  */
 public class NormalState implements State{
 	/**

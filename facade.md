@@ -20,10 +20,10 @@
 
 從下面的代碼可以看出經過Facade的統一包裝管理後，使用者(Client)要使用這些影音設備就變的簡單許多。 
 
-類別圖：  
-![Facade Pattern](image/facade.gif)  
+###類別圖  
+![Facade Class Diagram](image/facade.gif)  
    
-程式碼：  
+###程式碼
 ```
 /**
  * 電子產品介面，全部的電子產品都可以開關電源
@@ -183,10 +183,11 @@ public class Television  extends Electronics {
 		return channel;
 	}
 }
-
-
+```
+外觀Facade類別
+```
 /**
- * 管理影音設備的外觀介面-測試
+ * 管理影音設備的外觀類別(Facade)
  */
 public class VedioRoomFacade {
 	// 房間內總共有這些影音設備
@@ -293,24 +294,33 @@ public class VedioRoomFacade {
 		ktv.showStatus();
 	}
 }
+```
+測試碼
+```
 
 /**
- * 影音設備Client端
+ * 外觀模式-測試(Client)
  */
 public class VedioRoomFacadeClient {
 	VedioRoomFacade superRemote = new VedioRoomFacade();
 	
 	@Test 
 	public void test(){
+		System.out.println("============外觀模式測試============");
+		System.out.println("以下測試碼可以看出使用外觀模式後，操作步驟會比一個一個類別進去操作方便取多");
+
+		System.out.println("---看電影---");
 		// 看電影
 		superRemote.readyPlayMovie("Life of Pi");
 		superRemote.playMovie();
 		superRemote.showAllStatus();
 		System.out.println();
+		System.out.println("---關機器---");
 		// 關閉機器
 		superRemote.turnOffAll();
 		superRemote.showAllStatus();
-		System.out.println();
+		
+		System.out.println("---看電視---");
 		// 看電視
 		superRemote.watchTv();
 		superRemote.showTv();
@@ -319,6 +329,7 @@ public class VedioRoomFacadeClient {
 		superRemote.turnOffAll();
 		System.out.println();
 		
+		System.out.println("---唱ktv---");
 		// 唱ktv
 		superRemote.readyKTV();
 		superRemote.selectSong("Moon");
@@ -328,8 +339,40 @@ public class VedioRoomFacadeClient {
 	} 
 }
 ```
+測試結果
+```
+============外觀模式測試============
+以下測試碼可以看出使用外觀模式後，操作步驟會比一個一個類別進去操作方便取多
+---看電影---
+PlayStation3開始播放 Life of Pi
+Television運作中
+Television音量為: 50, ps畫面顯示中
+Stereo運作中
+Stereo音量為: 50
+PlayStation3運作中
+PlayStation3目前放入cd: Life of Pi
+KTVsystem電源未開啟
+
+---關機器---
+Television電源未開啟
+Stereo電源未開啟
+PlayStation3電源未開啟
+KTVsystem電源未開啟
+---看電視---
+目前觀看的是頻道: 9
+目前觀看的是頻道: 20
+
+---唱ktv---
+KTVsystem播放 Moon
+Television運作中
+Television音量為: 50, ktv播放中
+Stereo運作中
+Stereo音量為: 50
+PlayStation3電源未開啟
+KTVsystem運作中
+```
 
 其實我覺的翻譯成門面模式會比外觀模式或表象模式會更適合一點，Facade是最常見的設計模式之一。  
-在現今最流行的MVC架構中，一般我們會用Controller讓前端瀏覽器呼叫，一個Controller會對應一個Service，
+在現今流行的MVC架構中，一般我們會用Controller讓前端瀏覽器呼叫，一個Controller會對應一個Service，
 這個Service其實就是一個Facade的設計，Service會將Controller需要的功能包裝整理，讓Controller不用直接呼叫
 與資料庫溝通的Dao或是使用複雜的程式，因此可以維持Controller只負責與瀏覽器溝通的單一職責。

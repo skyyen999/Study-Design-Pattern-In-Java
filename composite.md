@@ -10,17 +10,18 @@
 
 讓我們繼續賴在冒險者的世界中，經過一段時間的發展，冒險者協會已經在許多城鎮都創立了分會，本來的協會就變成了冒險者總會，
 分會之下可能還會有分會，另外每個協會會有一個客戶服務單位(ServiceDepartment)還接受委託與處理客訴，
-另外也會有人力資源單位(HumanResouce)來招幕冒險者來處理客戶的委託。這個結構與上面所說的樹狀結構是相同的，總會就是Root，
-下面的分會則是有子分支的Node，客戶服務單位與人力資源單位則為Leaf。以下為實作代碼。  
+另外也會有人力資源單位(HumanResouce)來招幕冒險者來處理客戶的委託。這個結構與上面所說的樹狀結構是相同的，總會就是Root(Component)，
+下面的分會則是有子分支的Node(Composite)，客戶服務單位與人力資源單位則為Leaf。以下為實作代碼。  
 
 
-類別圖：  
-![AbstractAssociation](image/composite.gif)  
-
+###類別圖  
+![Compostie Class Diagram](image/composite.gif)  
+  
+###程式碼
+Component
 ```
 /**
  * 協會抽象類別(Component)
- *
  */
 public abstract class AbstractAssociation {
 	protected String name;
@@ -48,7 +49,9 @@ public abstract class AbstractAssociation {
 	 */
 	public abstract void lineOfDuty();
 }
-
+```  
+Composite
+```
 /**
  * 有分支的協會(Composite)
  *
@@ -101,8 +104,9 @@ public class Association extends AbstractAssociation{
 		}
 	};
 }
-
-
+```
+Leaf
+```
 /**
  * 部門單位抽項類別(Leaf)
  */
@@ -163,7 +167,6 @@ public class HumanResouce extends Department {
  * 客服部門(Leaf)
  */
 public class ServiceDepartment extends Department {
-
 	public ServiceDepartment(String name) {
 		super(name);
 	}
@@ -175,6 +178,76 @@ public class ServiceDepartment extends Department {
 	public void lineOfDuty() {
 		System.out.println(name +  ":處理客訴，告訴客戶，這肯定是冒險者的錯，不是協會的錯");
 	}
-
 }
 ```  
+測試碼
+```  
+/**
+ * 合成模式-測試
+ */
+public class BranchOrganizationTest {
+	@Test
+	public void test(){
+		System.out.println("============合成模式測試============");
+
+		AbstractAssociation root = new Association("冒險者總會");
+		root.add(new HumanResouce("總會-人力資源單位"));
+		root.add(new ServiceDepartment("總會-客服單位"));
+		
+		AbstractAssociation mars = new Association("火星分會");
+		mars.add(new HumanResouce("火星分會-人力資源單位"));
+		mars.add(new ServiceDepartment("火星分會-客服單位"));
+		root.add(mars);
+
+		AbstractAssociation saturn = new Association("土星分會");
+		mars.add(new HumanResouce("土星分會-人力資源單位"));
+		mars.add(new ServiceDepartment("土星分會-客服單位"));
+		root.add(mars);
+		
+		AbstractAssociation m1 = new Association("土衛1號辦事處");
+		m1.add(new HumanResouce("土衛1號辦事處-人力資源單位"));
+		m1.add(new ServiceDepartment("土衛1號辦事處-客服單位"));
+		saturn.add(m1);
+		
+		// 地區偏遠，沒人會過來客服的地方
+		AbstractAssociation m2 = new Association("土衛2號辦事處");
+		m2.add(new HumanResouce("火衛2號辦事處-人力資源單位"));
+		saturn.add(m2);
+		
+		System.out.println("結構圖:");
+		root.display(1);
+		System.out.println("職責表");
+		root.lineOfDuty();
+	}
+}
+```
+
+測試結果
+```  
+============合成模式測試============
+結構圖:
+-冒險者總會
+---總會-人力資源單位
+---總會-客服單位
+---火星分會
+-----火星分會-人力資源單位
+-----火星分會-客服單位
+-----土星分會-人力資源單位
+-----土星分會-客服單位
+---火星分會
+-----火星分會-人力資源單位
+-----火星分會-客服單位
+-----土星分會-人力資源單位
+-----土星分會-客服單位
+職責表
+總會-人力資源單位:想辦法拐騙冒險者來完成任務
+總會-客服單位:處理客訴，告訴客戶，這肯定是冒險者的錯，不是協會的錯
+火星分會-人力資源單位:想辦法拐騙冒險者來完成任務
+火星分會-客服單位:處理客訴，告訴客戶，這肯定是冒險者的錯，不是協會的錯
+土星分會-人力資源單位:想辦法拐騙冒險者來完成任務
+土星分會-客服單位:處理客訴，告訴客戶，這肯定是冒險者的錯，不是協會的錯
+火星分會-人力資源單位:想辦法拐騙冒險者來完成任務
+火星分會-客服單位:處理客訴，告訴客戶，這肯定是冒險者的錯，不是協會的錯
+土星分會-人力資源單位:想辦法拐騙冒險者來完成任務
+土星分會-客服單位:處理客訴，告訴客戶，這肯定是冒險者的錯，不是協會的錯
+```    

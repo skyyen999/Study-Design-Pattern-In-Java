@@ -8,11 +8,13 @@ import c11.composite.organizationTree.HumanResouce;
 import c11.composite.organizationTree.ServiceDepartment;
 
 /**
- * 冒險者協會，樹狀組織圖測試
+ * 合成模式-測試
  */
 public class BranchOrganizationTest {
 	@Test
 	public void test(){
+		System.out.println("============合成模式測試============");
+
 		AbstractAssociation root = new Association("冒險者總會");
 		root.add(new HumanResouce("總會-人力資源單位"));
 		root.add(new ServiceDepartment("總會-客服單位"));

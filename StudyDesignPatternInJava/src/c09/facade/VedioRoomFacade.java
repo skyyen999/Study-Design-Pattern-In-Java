@@ -1,6 +1,6 @@
 package c09.facade;
 /**
- * 管理影音設備的外觀介面(Facade)
+ * 管理影音設備的外觀類別(Facade)
  */
 public class VedioRoomFacade {
 	// 房間內總共有這些影音設備

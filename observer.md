@@ -59,7 +59,7 @@ public class Association extends Subject {
 }
 ```
 
-被觀察者介面Subject與實作類別  
+觀察者介面Observer與實作類別  
 ```
 /**
  * 冒險者(Observer)

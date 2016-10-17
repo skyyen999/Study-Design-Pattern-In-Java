@@ -3,7 +3,7 @@ package c10.template.maze;
 import c10.template.adventurer.Adventurer;
 
 /**
- * 迷宮樣版-規範迷宮冒險的演算法(Template)
+ * 迷宮樣版(Template)-規範迷宮冒險的演算法
  */
 public abstract class MazeTemplate {
 	protected int difficulty ; // 迷宮難度
