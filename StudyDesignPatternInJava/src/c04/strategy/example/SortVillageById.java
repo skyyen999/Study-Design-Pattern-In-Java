@@ -2,7 +2,7 @@ package c04.strategy.example;
 
 import java.util.Comparator;
 /**
- * 使用ID排序
+ * 使用ID排序(ConcretStrategy)
  */
 public class SortVillageById implements Comparator<Village>{
 	@Override

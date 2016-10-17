@@ -3,7 +3,7 @@ package c04.strategy.example;
 import java.util.Comparator;
 
 /**
- * 村莊名稱做排序
+ * 村莊名稱做排序(ConcretStrategy)
  */
 public class SortVillageByName implements Comparator<Village>{
 	@Override

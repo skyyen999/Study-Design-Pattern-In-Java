@@ -1,6 +1,7 @@
 ﻿# 策略模式與簡單工廠模式有什麼不同?
 
-##先看圖
+###先看圖  
+
 ####簡單工廠模式  
 ![Simple Factory](image/simpleFactory.gif) 
 
@@ -20,56 +21,49 @@
 給我一個鬥士(warrior)，訓練營就會產生一個物件給你一個相對應的冒險者，致於這個冒險者要去燒殺擄掠還是解救村民
 ，訓練營表示不關我的事情，我也不想知道，我只負責訓練冒險者。  
 
-來到了策略模式，冒險者根據不同的情境來產生攻擊策略(這邊其實也可以改成用字串來產生不同的策略，
-這樣策略模式看起來跟簡單工廠更像了)，不過這個攻擊策略跟冒險者是息息相關的，
+來到了策略模式，冒險者根據不同的情境來產生攻擊策略(這邊其實也可以改成用字串來產生不同的策略(這樣策略模式看起來跟簡單工廠更像了)，不過這個攻擊策略跟冒險者是息息相關的，
 畢竟用錯策略輕則被隊友笑說你怎麼這麼笨，嚴重的話就要請大俠重新來過了。  
 
+兩者的差別在於工廠模式中的工廠類別並不會去使用產品，因為工廠模式只關注在如何產生建立物件；
+在策略模式中的環境類別則是使用外部傳入的策略類別，因此我們必須知道傳入策略的實際內容才行。
+
 * * *  
-
-####總結一下
-其實搞不清楚這兩個有什麼不一樣沒關係，畢竟設計模式只是提供一種解決問題的方法，總是會有其他方法可以解決的，除非你跟我得了一種
-不找出一個自己覺得還可以的解釋會睡不著的病，其實不用花太多時間在這個問題上。  
-
-簡單工廠模式跟策略模式都是透過子類別實現介面來減少類別之間的耦合度，兩者之間的差異非常的微妙，
-要到實際調用的時候才會發現簡單工廠模式是創建型模式，真的只關注在物件的建立；策略模式是行為模式，
-關注行為的封裝。好吧，這兩句前面出現過了，不過兩者的差別真的也就是這兩句話，我想這是學習必經的過程，
-同樣的一段話，自己努力掙扎一番後回來看才發現原來答案真的是這樣。  
   
 簡單工廠模式  
 ```
-	@Test
-	public void test(){
-		System.out.println("==========簡單工廠模式測試==========");
-		
-		//訓練營訓練冒險者
-		Adventurer memberA = TrainingCamp.trainAdventurer("archer");
-		Adventurer memberB = TrainingCamp.trainAdventurer("warrior");
-		
-		//看看是不是真的訓練出我們想要的冒險者
-		Assert.assertEquals(memberA.getType(), "Archer");
-		Assert.assertEquals(memberB.getType(), "Warrior");
-		//memberB應該是Warrior不是Knight，因此這邊會報錯
-		// Assert.assertEquals(memberB.getType(), "Knight");
-	}
+@Test
+public void test(){
+	System.out.println("==========簡單工廠模式測試==========");
+	
+	//訓練營訓練冒險者
+	Adventurer memberA = TrainingCamp.trainAdventurer("archer");
+	Adventurer memberB = TrainingCamp.trainAdventurer("warrior");
+	
+	//看看是不是真的訓練出我們想要的冒險者
+	Assert.assertEquals(memberA.getType(), "Archer");
+	Assert.assertEquals(memberB.getType(), "Warrior");
+	//memberB應該是Warrior不是Knight，因此這邊會報錯
+	// Assert.assertEquals(memberB.getType(), "Knight");
+}
 ```
 
 
 策略模式  
 ```
-	@Test
-	public void test(){
-		Adventurer ad = new Adventurer();
-		
-		// 史萊姆用一般攻擊就可以
-		System.out.println("出現史萊姆>>>");
-		ad.choiceStrategy(new NormalAttack());
-		ad.attack();
-		System.out.println();
-		
-		// 利害的敵人要用厲害的招式打他
-		System.out.println("非常非常巨大的史萊姆>>>");
-		ad.choiceStrategy(new UseSkill());
-		ad.attack();
-		System.out.println();
-	}	
+@Test
+public void test(){
+	Adventurer ad = new Adventurer();
+	
+	// 史萊姆用一般攻擊就可以
+	System.out.println("出現史萊姆>>>");
+	ad.choiceStrategy(new NormalAttack());
+	ad.attack();
+	System.out.println();
+	
+	// 利害的敵人要用厲害的招式打他
+	System.out.println("非常非常巨大的史萊姆>>>");
+	ad.choiceStrategy(new UseSkill());
+	ad.attack();
+	System.out.println();
+}	
 ```

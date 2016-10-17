@@ -2,7 +2,7 @@ package c04.strategy.example;
 
 import java.util.Comparator;
 /**
- * 人口做排序
+ * 人口做排序(ConcretStrategy)
  */
 public class SortVillageByPopulation implements Comparator<Village>{
 	@Override

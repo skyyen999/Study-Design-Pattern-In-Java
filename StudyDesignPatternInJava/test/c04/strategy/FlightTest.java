@@ -7,12 +7,14 @@ import c04.strategy.flight.NormalAttack;
 import c04.strategy.flight.UseItem;
 import c04.strategy.flight.UseSkill;
 /**
- * 冒險者選擇不同戰鬥策略-測試
+ * 策略模式-測試
  */
 public class FlightTest {
 	
 	@Test
 	public void test(){
+        System.out.println("==========策略模式測試==========");
+
 		Adventurer ad = new Adventurer();
 		
 		// 史萊姆用一般攻擊就可以

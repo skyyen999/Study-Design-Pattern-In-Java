@@ -1,6 +1,6 @@
 package c05.decorator.title;
 /**
- * 稱號-強壯
+ * 稱號-強壯(ConcreteDecorator)
  */
 public class TitleStrong extends Title{	
 	public TitleStrong(Adventurer adventurer) {

@@ -10,11 +10,13 @@ import c06.observer.association.Lancer;
 import c06.observer.association.Subject;
 
 /**
- * 冒險者們觀察冒險者者協會貼任務公告-測試
+ * 觀察者模式-測試
  */
 public class AssociationTest {
 	@Test
 	public void test () {
+		System.out.println("============觀察者模式測試============");
+
 		// 冒險者們
 		Adventurer lancer = new Lancer("jacky");
 		Adventurer lancer2 = new Lancer("seven");

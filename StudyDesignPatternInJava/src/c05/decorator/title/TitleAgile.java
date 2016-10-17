@@ -1,6 +1,6 @@
 package c05.decorator.title;
 /**
- * 稱號-敏捷
+ * 稱號-敏捷 (ConcreteDecorator)
  */
 public class TitleAgile extends Title{	
 

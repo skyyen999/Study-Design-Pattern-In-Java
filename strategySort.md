@@ -9,8 +9,7 @@ sort接收兩個參數，第一個為要排序的清單(List)，第二個是比�
 這邊有三個村莊，分別將以ID排序的策略(SortVillageById)、以名稱排序的策略(SortVillageByName)、以人口排序的策略(SortVillageByPopulation)
 傳入sort排序清單中的村莊。
    
-程式碼：  
-  
+###程式碼   
 ```
 /**
  * 村莊類別，等等拿來做排序用
@@ -36,7 +35,7 @@ public class Village {
 
 
 /**
- * 使用ID排序
+ * 使用ID排序(ConcretStrategy)
  */
 public class SortVillageById implements Comparator<Village>{
 	@Override
@@ -53,7 +52,7 @@ public class SortVillageById implements Comparator<Village>{
 }
 
 /**
- * 用村莊面積做排序
+ * 用村莊面積做排序(ConcretStrategy)
  */
 public class SortVillageByArea implements Comparator<Village>{
 	@Override
@@ -70,7 +69,7 @@ public class SortVillageByArea implements Comparator<Village>{
 }
 
 /**
- * 村莊名稱做排序
+ * 村莊名稱做排序(ConcretStrategy)
  */
 public class SortVillageByName implements Comparator<Village>{
 	@Override
@@ -88,7 +87,7 @@ public class SortVillageByName implements Comparator<Village>{
 
 
 /**
- * 策略模式實例
+ * 策略模式排序-測試
  */
 public class StrategyExample {
 
@@ -131,4 +130,28 @@ public class StrategyExample {
 		}
 	}
 }
+```
+測試結果  
+```
+==========策略模式排序測試==========
+沒排序過的資料
+3.apple farm(人口: 32 面積: 5.1)
+1.barn field(人口: 22 面積: 1.7)
+2.cape valley(人口: 10 面積: 10.2)
+根據ID排序
+1.barn field(人口: 22 面積: 1.7)
+2.cape valley(人口: 10 面積: 10.2)
+3.apple farm(人口: 32 面積: 5.1)
+根據名子排序
+3.apple farm(人口: 32 面積: 5.1)
+1.barn field(人口: 22 面積: 1.7)
+2.cape valley(人口: 10 面積: 10.2)
+根據人口排序
+2.cape valley(人口: 10 面積: 10.2)
+1.barn field(人口: 22 面積: 1.7)
+3.apple farm(人口: 32 面積: 5.1)
+根據面積排序
+1.barn field(人口: 22 面積: 1.7)
+3.apple farm(人口: 32 面積: 5.1)
+2.cape valley(人口: 10 面積: 10.2)
 ```

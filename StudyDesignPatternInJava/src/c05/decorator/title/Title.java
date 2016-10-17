@@ -1,11 +1,11 @@
 package c05.decorator.title;
 
 /**
- * 稱號介面
+ * 稱號介面(Decorator)
  */
 public abstract class Title implements Adventurer{
 	/**
-	 * 被裝飾的冒險者
+	 * 被裝飾的冒險者(Component)
 	 */
 	protected Adventurer adventuerer;
 	

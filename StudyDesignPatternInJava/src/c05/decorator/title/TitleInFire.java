@@ -1,6 +1,6 @@
 package c05.decorator.title;
 /**
- * 稱號-燃燒
+ * 稱號-燃燒(ConcreteDecorator)
  */
 public class TitleInFire extends Title{
 	public TitleInFire(Adventurer adventurer) {

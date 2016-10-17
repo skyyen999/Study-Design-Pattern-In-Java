@@ -9,11 +9,13 @@ import c04.strategy.example.SortVillageByName;
 import c04.strategy.example.SortVillageByPopulation;
 import c04.strategy.example.Village;
 /**
- * 策略模式實例
+ * 策略模式排序-測試
  */
 public class StrategyExample {
 
 	public static void main(String[] args) {
+        System.out.println("==========策略模式排序測試==========");
+
 		// 準備三個村莊的資料
 		Village appleFarm = new Village(3,"apple farm",32,5.1);
 		Village barnField = new Village(1,"barn field",22,1.7);
@@ -44,7 +46,7 @@ public class StrategyExample {
 		showList(vilages);
 	}
 
-	// 只是為了把資料印出來看
+	// 為了把資料印出來看
 	public static void showList (ArrayList<Village> list){
 		for(Village v : list){
 			System.out.println(v);

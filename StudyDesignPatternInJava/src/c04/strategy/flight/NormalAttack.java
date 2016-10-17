@@ -1,6 +1,6 @@
 package c04.strategy.flight;
 /**
- * 一般攻擊
+ * 一般攻擊(ConcreteStrategy)
  */
 public class NormalAttack implements FlightStrategy {
 

@@ -8,11 +8,13 @@ import c05.decorator.title.TitleAgile;
 import c05.decorator.title.TitleInFire;
 import c05.decorator.title.TitleStrong;
 /**
- * 冒險者使用不同稱號來強化-測試
+ * 裝飾者模式-測試
  */
 public class TitleTest {
 	@Test
 	public void test(){
+		System.out.println("============裝飾者模式測試============");
+		
 		// 一開始沒有任何稱號的冒險者
 		Adventurer lancer = new Lancer("Jacky");
 		System.out.println("---長槍兵Jacky---");

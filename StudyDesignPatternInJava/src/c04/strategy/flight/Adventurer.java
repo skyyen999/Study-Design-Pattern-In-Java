@@ -1,6 +1,6 @@
 package c04.strategy.flight;
 /**
- * 冒險者
+ * 冒險者(Context)
  */
 public class Adventurer {
 	FlightStrategy flightStrategy;  //不同戰鬥方式效果不同(strategy)

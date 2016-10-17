@@ -1,6 +1,6 @@
 package c04.strategy.flight;
 /**
- * 使用道具
+ * 使用道具(ConcreteStrategy)
  */
 public class UseItem implements FlightStrategy {
 	@Override

@@ -1,7 +1,7 @@
 package c05.decorator.title;
 
 /**
- * 冒險者-長槍兵
+ * 長槍兵(ConcreteComponent)
  */
 public class Lancer implements Adventurer{
 	// 冒險者的姓名

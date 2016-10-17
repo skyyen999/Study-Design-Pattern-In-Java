@@ -1,4 +1,4 @@
-# 裝飾模式實例 File IO
+# 裝飾者模式實例 File IO
   
 ####
 這部分參考[深入淺出 設計模式]，最著名的裝飾模式應用，應該就是java.io這套讀寫檔案的API了，這邊取出幾個java.io package內的類別，類別圖如下圖所示，
@@ -10,13 +10,12 @@
 ![File IO](image/fileIO.gif)  
 
 
-程式碼：  
+###程式碼
 ```
 /**
  * 裝飾類別-將讀入的字母轉成大寫
  */
 public class UpperCaseInputStream extends FilterInputStream{
-
 	public UpperCaseInputStream(InputStream in) {
 		super(in);
 	}
@@ -26,9 +25,7 @@ public class UpperCaseInputStream extends FilterInputStream{
 		int c = super.read();
 		return (c == -1) ? c : Character.toUpperCase((char)c) ;
 	}
-
 }
-
 
 /**
  * 裝飾模式實例javaIO-測試

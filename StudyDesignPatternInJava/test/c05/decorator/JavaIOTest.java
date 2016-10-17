@@ -14,6 +14,7 @@ import c05.decorator.javaIO.UpperCaseInputStream;
 public class JavaIOTest {
 	@Test
 	public void test() throws IOException{
+
 			// 測試將讀入的字母換成大寫
 			InputStream in = new UpperCaseInputStream(new BufferedInputStream(new FileInputStream("test.txt")));
 			
