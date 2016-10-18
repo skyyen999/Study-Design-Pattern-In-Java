@@ -1,6 +1,6 @@
 package c15.builder.robotBuilder;
 /**
- * 機器人組件-外型
+ * 機器人組件-外型(Product Part)
  */
 public class Form {
 	private String formName; 

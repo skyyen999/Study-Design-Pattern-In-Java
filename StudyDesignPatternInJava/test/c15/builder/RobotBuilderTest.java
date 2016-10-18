@@ -13,6 +13,7 @@ public class RobotBuilderTest {
 	
 	@Test
 	public void test() {
+		System.out.println("============建造者模式測試============");
 		Director director = new Director(new GundamBuilder());
 		IRobot robot = director.builderRobot();
 		robot.display();

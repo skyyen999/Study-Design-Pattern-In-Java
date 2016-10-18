@@ -1,8 +1,7 @@
 package c16.chainOfResponsibility.applyInCompany;
 
 /**
- * 總經理
- * @author Yan
+ * 總經理(Concretehandler)
  *
  */
 public class GeneralManager extends Manager {

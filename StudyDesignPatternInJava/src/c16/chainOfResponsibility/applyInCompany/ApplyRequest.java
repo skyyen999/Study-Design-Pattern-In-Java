@@ -1,6 +1,6 @@
 package c16.chainOfResponsibility.applyInCompany;
 /**
- * 提出申請
+ * 提出申請(Request)
  */
 public class ApplyRequest {
 	/**

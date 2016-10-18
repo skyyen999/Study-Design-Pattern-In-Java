@@ -1,7 +1,7 @@
 package c15.builder.robotBuilder;
 
 /**
- * 機器人組件-動力
+ * 機器人組件-動力(Product Part)
  */
 public class Power {
 	private String mainPower; // 主動力

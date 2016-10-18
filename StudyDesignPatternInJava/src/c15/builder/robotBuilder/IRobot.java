@@ -1,7 +1,7 @@
 
 package c15.builder.robotBuilder;
 /**
- * 機器人介面
+ * 機器人介面(Product)
  */
 public abstract class IRobot {
 	Form  form; // 外型

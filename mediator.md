@@ -5,14 +5,15 @@
 ###聊天系統  
 ![Meditor Exmple]mediatorExmple(image/mediatorExmple.png)
 上圖左邊四個圈圈ABCD代表我們的聊天系統上有4個使用者，每一個使用者都能跟其他使用者聊天，
-因此之間的關係會變的像圖一樣很混亂，如果可以將傳遞訊息的工作統一交給中介者，像右圖這樣，
+因此之間的關係會變的像圖一樣很混亂，如果可以將傳遞訊息的工作統一交給中介者(Mediator)，像右圖這樣，
 程式的架構會比較清楚，而且可以切開ABCD之間的互相耦合。   
   
-類別圖：  
+###類別圖  
 ![Mediator Class Diagram](image/.gif)  
 
-程式碼：
+###程式碼
 ```
+Mediator介面與實作類別
 /**
  * 中介者介面(Mediator)
  */
@@ -69,7 +70,9 @@ public class MessageMediator implements Mediator {
 		
 	};
 }
-
+``` 
+Colleague介面與實作類別  
+``` 
 /**
  * 定義可以發送訊息的物件介面(Colleague)
  */
@@ -120,14 +123,17 @@ public class VIPUser extends Messager{
 		super(name);
 	}	
 }
-
+```  
+測試碼  
+```  
 /**
  * 中介者模式-測試
  */
 public class MediatorTest {
 	@Test
 	public void Test(){
-		
+		System.out.println("============中介者模式測試============");
+
 		Messager jacky = new VIPUser("jacky");
 		Messager huant = new CommonUser("huant");
 		Messager neil = new CommonUser("neil");
@@ -135,13 +141,27 @@ public class MediatorTest {
 		MessageMediator.joinChat(jacky);
 		MessageMediator.joinChat(huant);
 		MessageMediator.joinChat(neil);
-		
+		System.out.println("---VIP會員直接送訊息給每個人---");
 		jacky.sendToAll("hi, 你好");
+		
+		System.out.println("---私底下送訊息---");
 		jacky.send("單挑阿!PK阿!", huant);
 
 		neil.send("收假了!!掰掰", jacky);
+		System.out.println("當非VIP會員想送訊息給每個人");
 		neil.sendToAll("阿阿阿!!!");
 	}
 }
-
+```  
+測試結果
+```  
+============中介者模式測試============
+---VIP會員直接送訊息給每個人---
+jacky->huant:hi, 你好
+jacky->neil:hi, 你好
+---私底下送訊息---
+jacky->huant:單挑阿!PK阿!
+neil->jacky:收假了!!掰掰
+---當非VIP會員想送訊息給每個人---
+非VIP用戶不能使用廣播
 ```  

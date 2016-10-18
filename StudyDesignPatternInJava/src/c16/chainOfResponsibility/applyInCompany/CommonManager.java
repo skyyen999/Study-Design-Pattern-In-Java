@@ -1,9 +1,7 @@
 package c16.chainOfResponsibility.applyInCompany;
 
 /**
- * 經理
- * @author Yan
- *
+ * 經理(Concretehandler)
  */
 public class CommonManager extends Manager {
 

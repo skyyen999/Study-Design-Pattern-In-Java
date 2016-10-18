@@ -7,14 +7,14 @@ import c16.chainOfResponsibility.applyInCompany.Majordomo;
 import c16.chainOfResponsibility.applyInCompany.Manager;
 
 /**
- * 公司請假，加薪簽核-測試
- * @author Yan
- *
+ * 責任鏈模式-測試
  */
 public class ManagerClient {
 
 	
 	public static void main(String[] args) {
+		System.out.println("============責任鏈模式測試============");
+
 		Manager pm = new CommonManager("PM經理");
 		Manager gl = new Majordomo("總監");
 		Manager gm = new GeneralManager("總經理");

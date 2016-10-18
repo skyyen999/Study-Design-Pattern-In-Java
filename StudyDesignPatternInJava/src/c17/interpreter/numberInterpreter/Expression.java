@@ -1,6 +1,6 @@
 package c17.interpreter.numberInterpreter;
 /**
- * 共用解譯器類別
+ * 共用解譯器類別(Expression)
  */
 public abstract class Expression {
 	public void interpret(String str){

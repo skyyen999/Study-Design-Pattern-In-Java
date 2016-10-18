@@ -1,7 +1,7 @@
 # 代理模式 Proxy Pattern
 
-####目的：
-為一個物件提供代理物件，代理物件常見的用途如下：
+####目的：為一個物件提供代理物件
+代理物件常見的用途如下：
 * 虛擬代理(Virtual Proxy):用比較不消耗資源的代理物件來代替實際物件，實際物件只有在真正需要才會被創造
 * 遠程代理(Remote Proxy):在本地端提供一個代表物件來存取遠端網址的物件	
 * 保護代理(Protect Proxy): 限制其他程式存取權限
@@ -15,9 +15,10 @@
 結論就是代理模式一般只會包一層，裝飾模式可能會包很多層，就像[Head First Design Pattern]一書所講一樣，你可以把裝飾模式
 當成一種特化版的代理模式來看待。
 
-類別圖：  
+###類別圖  
 ![Proxy Class Diagram](image/proxy.gif)  
 
+###程式碼
 ```
 // 遊戲顯示介面
 public interface GameDisplay {
@@ -54,4 +55,35 @@ public class ProxyGameDisplay implements GameDisplay{
 		realGameDisplay.display();
 	}
 }
+```  
+測試碼
+```  
+/**
+ * 代理模式(動態代理)-測試
+ */
+public class GameLoaderTest {
+	@Test
+	public void test(){
+		System.out.println("============代理模式(動態代理)測試============");
+
+		
+		// 沒使用代理
+		System.out.println("---沒使用代理---");
+		new RealGameDisplay().display();
+		System.out.println();
+		// 使用代理
+		System.out.println("---使用代理---");
+		new ProxyGameDisplay(new RealGameDisplay()).display();
+	}
+}
+```  
+測試結果
+```  
+============代理模式(動態代理)測試============
+---沒使用代理---
+顯示遊戲畫面
+
+---使用代理---
+遊戲讀取中...
+顯示遊戲畫面
 ```  

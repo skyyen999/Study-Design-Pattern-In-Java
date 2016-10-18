@@ -1,6 +1,6 @@
 package c17.interpreter.numberInterpreter;
 /**
- * 待解譯的資料
+ * 待解譯的資料(Context)
  */
 public class Context {
 	// 存放待解譯資料

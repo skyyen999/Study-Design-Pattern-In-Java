@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 機器人組件-武器
+ * 機器人組件-武器(Product Part)
  */
 public class Weapon {
 	List<String> list = new ArrayList<>();

@@ -5,10 +5,10 @@
 來實現的。以下我們做一個簡單的list(SimpleList)，這個list內建一個實作Iterator介面的SimpleIterator，當然這個SimpleList必須要有
 回傳SimpleIterator的方法，這樣其他程式才能利用SimpleIterator來走訪list的內容物。  
 
-類別圖：  
+###類別圖
 ![Iterator class diagram](image/iterator.gif)  
 
-程式碼： 
+###程式碼  
 ```
 // java內建的Iteator interface
 public interface Iterator<E> {
@@ -91,4 +91,45 @@ public class SimpleListTest {
 		it.next(); 		// 這裡會拋出 IndexOutOfBoundsException
 	}
 }
+```  
+測試碼
+```  
+/**
+ * 走訪器模式-測試
+ */
+public class SimpleListTest {
+	@Test
+	public void test(){
+		System.out.println("============走訪器模式測試============");
+
+		SimpleList list = new SimpleList();
+
+		list.add("樂高車");
+		list.add("超跑");
+		list.add("露營車");
+		list.add("連結車");
+		list.add("九門轎車");
+		list.add("F1賽車");
+		
+		// 取出iterator
+		@SuppressWarnings("rawtypes")
+		Iterator it = list.getIterator();
+		// 使用 hasNext與next取出list裡面的元素
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}	
+
+		it.next(); 		// 這裡會拋出 IndexOutOfBoundsException
+	}
+}
+```  
+測試結果
+```  
+============走訪器模式測試============
+樂高車
+超跑
+露營車
+連結車
+九門轎車
+F1賽車
 ```  

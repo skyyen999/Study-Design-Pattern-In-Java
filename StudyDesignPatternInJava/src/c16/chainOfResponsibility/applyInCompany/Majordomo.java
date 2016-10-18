@@ -1,8 +1,7 @@
 package c16.chainOfResponsibility.applyInCompany;
 
 /**
- * 總監
- * @author Yan
+ * 總監(Concretehandler)
  *
  */
 public class Majordomo extends Manager {

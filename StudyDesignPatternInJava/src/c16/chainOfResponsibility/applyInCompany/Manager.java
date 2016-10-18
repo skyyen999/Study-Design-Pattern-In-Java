@@ -1,9 +1,7 @@
 package c16.chainOfResponsibility.applyInCompany;
 
 /**
- * 管理者
- * @author Yan
- *
+ * 管理者(Handler)
  */
 public abstract class Manager {
 	protected String name;
