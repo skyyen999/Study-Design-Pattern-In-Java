@@ -4,7 +4,8 @@
 ## by Yan(驗) at 2016  
 ***
 ##[開始閱讀](https://skyyen999.gitbooks.io/-study-design-pattern-in-java/content/)
-##[github連結](https://github.com/skyyen999/leetcodeWithJS)  
+##[github連結](https://github.com/skyyen999/Study-Design-Pattern-In-Java)
+##[範例程式](https://github.com/skyyen999/Study-Design-Pattern-In-Java/tree/master/StudyDesignPatternInJava)
 ***
 
   
@@ -12,7 +13,7 @@
 一開始的想法是邊讀邊寫，每讀一種模式就寫一篇，沒多久就發現很多模式很類似，對設計模式沒有一定的理解是沒辦法分辨這些類似的模式
 到底有什麼差異。經過不斷的修改與嘗試後，決定先介紹物件導向設計原則，接著開始介紹設計模式，每一個模式盡量自己想一個情境來介紹
 設計模式，因為學的還不夠深入，本來想找一些真正有被框架或是API運作的程式碼，不過找了一下發現有點難，這部分只能先放棄了。
-另外在閱讀的同時發現很多模式看起來很類似，甚至類別圖看起來是一模一樣的，會在寫完一個模式後盡量補充類似模式的異同。    
+另外有些模式看起來很類似，甚至類別圖看起來是一模一樣的，自己覺得有疑惑的話會補充類似模式的異同。    
 
 設計模式我是從設計模式的聖經**Design Patterns : Elements of Re-usable Object-Oriented Software**，發現這本書很難，
 只好先放棄，真正開始是從**大話設計模式**這本書開始，裡面的範例是使用c#，我就一邊看一邊用JAVA重新寫了一次範例程式。

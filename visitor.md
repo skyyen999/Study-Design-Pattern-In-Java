@@ -11,10 +11,10 @@ Collection中，因此他們做出來的燒賣都會是一樣的(同樣的Interf
 則是實作Visitor的類別，我們將將每陣營廚師做燒賣的方法交給ConcreteVisotr，因此雖然他們的Interface是相同的，不過仍然可以做出不同的燒賣
 ，假如今天第二輪題目是做豆腐料理，那我們只要增加一個做豆腐(ConcreteVisotr)而不會破壞程式結構。    
 
-類別圖
+###類別圖
 ![Visitor Class Diagram](image/visitor.gif)  
 
-程式碼
+###程式碼
 ```
 /**
  * 廚師介面-被操作的元素
@@ -192,8 +192,7 @@ public class ChefTest {
 	}
 }
 ```
-
-結果
+測試結果
 ```
 ------------第一回合:做燒賣--------------
 小當家 : 宇宙大燒賣

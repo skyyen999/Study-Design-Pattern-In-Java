@@ -9,6 +9,9 @@ import org.junit.Test;
 public class GameRoleTest {
 	@Test
 	public void test() {
+		System.out.println("============備忘錄模式測試============");
+
+		
 		// boss一開始的狀態
 		GameRole boss = new GameRole();
 		boss.stateDisplay();
@@ -22,8 +25,8 @@ public class GameRoleTest {
 		RoleStateCareTaker rsc = new RoleStateCareTaker();
 		rsc.setSave(boss.save());
 		boss.stateDisplay();
-
-		
+		System.out.println("使用備忘錄存檔，存檔後開始戰鬥");
+		System.out.println();
 		// 開打了
 		boss.fight();
 		boss.stateDisplay();

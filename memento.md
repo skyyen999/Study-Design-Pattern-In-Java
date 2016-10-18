@@ -8,13 +8,13 @@
 所以使用後我們就先使用備忘錄物件(Memento)將魔王的狀態儲存，當戰鬥不順利需要重來的時候我們可以使用Memento將
 魔王的狀態恢復到開打之前。  
 
-類別圖：  
+###類別圖 
 ![Memento Class Diagram](image/memento.gif)  
   
-程式碼：
+###程式碼
 ```
 /**
- * 要備份的物件
+ * 要備份的物件(Originator)
  */
 public class GameRole {
 	private int hp = 100;
@@ -72,7 +72,7 @@ public class GameRole {
 
 
 /**
- * 備忘錄物件
+ * 備忘錄物件(Memento)
  */
 public class RoleStateMemo {
 	private int hp;
@@ -107,7 +107,7 @@ public class RoleStateMemo {
 
 
 /**
- * 將物件備份
+ * 將物件備份(MementoCareTaker)
  */
 public class RoleStateCareTaker {
 	public List<RoleStateMemo> saves = new ArrayList<>();
@@ -120,7 +120,9 @@ public class RoleStateCareTaker {
 		saves.add(0, memo);
 	}
 }
-
+```  
+測試碼
+```  
 
 /**
  * 備忘錄模式-測試
@@ -155,6 +157,24 @@ public class GameRoleTest {
 	}
 	
 }
+```  
+測試結果
+```  
+============備忘錄模式測試============
+第六天魔王的狀態：
+hp=100, atk=100, def=100
 
+使用複雜的神秘小技巧
+第六天魔王的狀態：
+hp=100, atk=60, def=100
 
+使用備忘錄存檔，存檔後開始戰鬥
+
+第六天魔王剩下30%血量，出大招把隊伍打的半死
+第六天魔王的狀態：
+hp=30, atk=60, def=100
+
+不行不行，那個時間點先該先回滿血，讀檔重打
+第六天魔王的狀態：
+hp=100, atk=60, def=100
 ```  

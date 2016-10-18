@@ -8,6 +8,8 @@ import org.junit.Test;
 public class ChefTest {
 	@Test
 	public void test(){
+		System.out.println("============拜訪者模式測試============");
+
 		// 準備參賽的廚師們
 		ChefGroup chefGropu = new ChefGroup();
 		chefGropu.join(new SuperChef("小當家"));

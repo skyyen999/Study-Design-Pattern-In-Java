@@ -9,11 +9,11 @@
   
 你說如果同時有兩個擁有者來看同一顆樹怎麼辦!!?不好意思，我們這個假日花園是採預約制的，每一個樹種一次只開放一個擁有者參觀。
   
-類別圖：  
+###類別圖
 ![Flyweight Class Diagram](image/flyweight.gif)  
   
   
-程式碼：  
+###程式碼  
 ```
 /**
  * 樹木(Flyweight)
@@ -55,20 +55,23 @@ public class TreeManager {
 		return treePool.get(type);
 	}
 }
-
+```  
+測試碼
+```  
 /**
  * 蠅量級模式 - 測試
  */
 public class TreeTest {
 	@Test
 	public void test(){
-		// 
-		Tree rose = TreeManager.getTree("rose");
+		System.out.println("============蠅量級模式測試============");
+
+		Tree rose = TreeManager.getTree("玫瑰");
 		rose.setOwner("rose");
 		rose.display();
-		Tree jRose = TreeManager.getTree("rose");
+		Tree jRose = TreeManager.getTree("玫瑰");
 		jRose.setOwner("jacky");
-		System.out.println("------jacky要一棵樹的時候，其實我們沒有創一棵新的給他，而是拿pool裡面那顆------");
+		System.out.println("------jacky要一棵玫瑰的時候，其實我們沒有創一棵的給他，而是拿pool裡面那棵------");
 		jRose.display();
 		
 		System.out.println();
@@ -77,13 +80,15 @@ public class TreeTest {
 		hinoki.display();
 	}
 }
+
 ```  
-執行結果：
+測試結果：
 ```
-取得一顆新的rose
-rose , 擁有者: rose
-------jacky要一棵樹的時候，其實我們沒有創一棵新的給他，而是拿pool裡面那顆------
-rose , 擁有者: jacky
+============蠅量級模式測試============
+取得一顆新的玫瑰
+玫瑰 , 擁有者: rose
+------jacky要一棵玫瑰的時候，其實我們沒有創一棵的給他，而是拿pool裡面那棵------
+玫瑰 , 擁有者: jacky
 
 取得一顆新的Hinoki
 Hinoki , 擁有者: no one
