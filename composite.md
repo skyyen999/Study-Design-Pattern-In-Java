@@ -1,4 +1,4 @@
-# 合成模式 Compostie Pattern
+# 合成模式 Composite Pattern
 
 ####目的：處理樹狀結構的資料
 
