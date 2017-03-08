@@ -1,9 +1,9 @@
 # 單例模式 Singleton  
 
-####目的：保證一個類別只有一個物件，而且要提供存取該物件的統一方法  
+####目的：保證一個類別會產生一個物件，而且要提供存取該物件的統一方法  
 
-單例模式是一個簡單易懂的模式，下面的code很簡單的就達到這樣的需求，後面加上greed的是因為這種編譯完就直接new出實體的寫法
-叫貪婪式的單例模式。  
+單例模式是一個簡單易懂的模式，下面的code很簡單的就達到這樣的需求，
+因為一開始我們就已經直接建例(new)物件，所以以下的寫法也稱為貪婪單例模式。  
   
 ```
 public class SingletonGreed {
@@ -20,7 +20,7 @@ public class SingletonGreed {
 }
 ```  
 
-假如建立這個物件需要耗費很多資源，我們希望物件只有在第一次getInstance被呼叫的時候才建立，code就要修改一下  
+假如建立這個物件需要耗費很多資源，可是程式運行中不一定會需要它，我們希望只有在第一次getInstance被呼叫的時候才花費資源來建立物件，code就要修改一下  
 ```
 public class Singleton {
 	private static Singleton instance;
@@ -41,7 +41,7 @@ public class Singleton {
 }
 ```  
 
-以上程式看起來沒問題，不過如果再多執行序的情況下被呼叫，可能第一個執行序跑到instance = new Singleton()時，將時間讓給第二個
+以上程式看起來沒問題，不過如果是多執行的情況下呼叫getInstance，可能第一個執行序跑到instance = new Singleton()時，將時間讓給第二個
 執行序，因此第二個執行序也執行了instance = new Singleton()，造成同時new了兩個新的物件。
 
 ```
@@ -100,7 +100,7 @@ public class Singleton {
 	}
 }
 ```  
-上面這樣的寫法，synchronized整個方法會造成效能會變差，實際上需要lock住的只有創造物件的過程，也就是new Singleton這段程式碼而已，
+上面這樣的寫法，synchronized整個方法會造成執行效能會變差，實際上需要lock住的只有創造物件的過程，也就是new Singleton這段程式碼而已，
 因此可以將synchronized搬到getInstance方法內來加快程式的效能。
 
 ```  
@@ -126,5 +126,5 @@ public class Singleton {
 }
 ```  
 由這個簡單的單例模式可以看到，一樣的設計模式在不同的情況也是會有不同的變化。
-設計模式不會是一段固定的程式碼，而是一種如何解決問題的概念。  
+設計模式不會是一段固定的程式碼，而是一種如何解決特定問題的概念。  
 

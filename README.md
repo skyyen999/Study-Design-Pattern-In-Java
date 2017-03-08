@@ -2,11 +2,11 @@
 
 ##Study Design Pattern In Java  
 ## by Yan(驗) at 2016  
-***
-##[開始閱讀](https://skyyen999.gitbooks.io/-study-design-pattern-in-java/content/)
-##[github連結](https://github.com/skyyen999/Study-Design-Pattern-In-Java)
-##[範例程式](https://github.com/skyyen999/Study-Design-Pattern-In-Java/tree/master/StudyDesignPatternInJava)
-***
+
+[開始閱讀](https://skyyen999.gitbooks.io/-study-design-pattern-in-java/content/)  
+[github連結](https://github.com/skyyen999/Study-Design-Pattern-In-Java)  
+[範例程式](https://github.com/skyyen999/Study-Design-Pattern-In-Java/tree/master/StudyDesignPatternInJava)  
+
 
   
 ##關於這份文件  
@@ -25,6 +25,16 @@
 以上碎碎念個人學習設計模式的過程。希望這份文件對你有幫助，不嫌麻煩的話可以到[github](https://github.com/skyyen999/Study-Design-Pattern-In-Java)
 給一顆星鼓勵一下，發現錯誤或是想一起討論請到[這邊](https://github.com/skyyen999/Study-Design-Pattern-In-Java/issues)留言或是發mail給我，感激不盡。說了這麼多，請點擊下面連結直接開始閱讀。  
 
+##版權許可（License）
+
+本書採用創用CC授權4.0 "姓名標示─非商業性─相同方式分享(BY-NC-SA)" 授權。
+
+![lisense](image/lisense.png)
+
+本授權條款允許使用者重製、散布、傳輸以及修改著作，但不得為商業目的之使用。若使用者修改該著作時，僅得依本授權條款或與本授權條款類似者來散布該衍生作品。使用時必須按照著作人指定的方式表彰其姓名。
+
+詳細資訊請參考 CC BY-NC-SA 4.0。
+
 ##以下是我學習設計模式的主要書籍與網路資源  
 * [大話設計模式](http://www.books.com.tw/products/0010430101)
 * [深入淺出 - 設計模式](http://www.books.com.tw/products/0010309237)
@@ -32,6 +42,6 @@
 * [Design Pattern In Java Tutorail](http://www.tutorialspoint.com/design_pattern/)
 
 ##作者 
-#### Yan
-#### mail: skyyen999@gmail.com  
+#### Yan13
+#### e-mail: skyyen999@gmail.com  
 #### github: https://github.com/skyyen999  
