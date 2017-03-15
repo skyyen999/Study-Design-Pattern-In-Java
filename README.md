@@ -1,7 +1,8 @@
 #設計模式學習筆計 
 
 ##Study Design Pattern In Java  
-## by Yan(驗) at 2016  
+## by Yan13(驗) 2016
+## update 2017  
 
 [開始閱讀](https://skyyen999.gitbooks.io/-study-design-pattern-in-java/content/)  
 [github連結](https://github.com/skyyen999/Study-Design-Pattern-In-Java)  
@@ -42,6 +43,6 @@
 * [Design Pattern In Java Tutorail](http://www.tutorialspoint.com/design_pattern/)
 
 ##作者 
-#### Yan13
+#### Yan13(驗)
 #### e-mail: skyyen999@gmail.com  
 #### github: https://github.com/skyyen999  
