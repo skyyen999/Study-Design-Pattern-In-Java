@@ -1,13 +1,12 @@
 # 策略模式實例-排序
   
-在java提供的API中可以找到策略模式的實際應用，Collection類別提供了sort這個方法方便對一群資料進行排序  
+在java提供的API中可以找到策略模式的實際應用，Collection類別提供了sort這個方法來對一群資料進行排序，我們來看看這個方法的宣告式：
 
 ***Collections.sort(List<T> list, Comparator<? super T> c)***
 
-sort接收兩個參數，第一個為要排序的清單(List)，第二個是比較器(Comparator)，Comparator裡面的演算法決定如何排序清單中的資料。  
+sort接收兩個參數，第一個為要排序的List，第二個是Comparator，Comparator裡面的演算法決定如何排序清單中的資料，不同的Comparator在這邊就是不同的策略(Strategy)。
+這邊有三個村莊，分別將以ID排序的Comparator (SortVillageById)、以名稱排序的Comparator (SortVillageByName)、以人口排序的Comparator (SortVillageByPopulation) 傳入sort，對清單中的村莊進行排序。
 
-這邊有三個村莊，分別將以ID排序的策略(SortVillageById)、以名稱排序的策略(SortVillageByName)、以人口排序的策略(SortVillageByPopulation)
-傳入sort排序清單中的村莊。
    
 ###程式碼   
 ```

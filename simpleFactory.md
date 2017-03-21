@@ -1,15 +1,16 @@
 # 簡單工廠模式 SimpleFactor
 
-####目的：定義一個簡單工廠，傳入不同的參數返回不同的類別物件 
+####目的：定義一個簡單工廠，傳入不同的參數取得不同的類別物件 
 * 簡單工廠又稱為靜態工廠模式，一般來說同一個工廠所產生的類別會有一個共同的父類別(介面)
    
 ###首先，先從新手村開始  
-現在要設計一個訓練冒險者(Adventurer)的新手村(Village)，裡面可以訓練的冒險者種類有弓箭手(Archer)、鬥士(Warrior)。  
+現在要設計一個訓練冒險者(Adventurer)的訓練營(TrainingCamp)，裡面可以訓練的冒險者種類有弓箭手(Archer)、鬥士(Warrior)。  
 套到簡單工廠模式中，訓練營就是我們的簡單工廠(SimpleFactory)，冒險者則是產品的父類別(Product)，弓箭手與鬥士為實體產品(ConcreteProduct)。  
 
 如果有人要來招募冒險者組隊，只要跟訓練營說請幫我訓練一個冒險者就可以，不用去理解訓練過程。
-現在新手村要多訓練一種冒險者:牧師(Priest)，只要在Villiage trainAdventurer()方法裡面增加一個switch case分支就好。  
-不過這樣會有個問題，直接修改Villiage類別的內容，違反了開放/封閉原則，因此如果簡單工廠生產的類別太多的話，我們會用工廠模式來修正這種情況。
+現在新手村要多訓練一種冒險者:牧師(Priest)，只要在trainAdventurer這個方法裡面增加一個switch case分支就好。  
+這樣會有個問題，直接修改TrainingCamp類別的內容，違反了開放/封閉原則，因此簡單工廠不能算是一個健全的設計模式，
+不過如果簡單工廠在小型的軟體架構中很好用，因此一般設計模式的教學都會從簡單工廠模式開始。
 
 ###類別圖  
 ![SimpleFactor Class Diagram](image/simpleFactory.gif)  
@@ -20,7 +21,7 @@
 // 冒險者(Product)
 public interface Adventurer {
 	//告訴別人你是哪種冒險者
-	String getType();}
+	String getType();
 }
 
 // 弓箭手(ConcreteProduct)

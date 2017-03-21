@@ -2,9 +2,10 @@
 
 ####目的：保證一個類別會產生一個物件，而且要提供存取該物件的統一方法  
 
-單例模式是一個簡單易懂的模式，下面的code很簡單的就達到這樣的需求，
-因為一開始我們就已經直接建例(new)物件，所以以下的寫法也稱為貪婪單例模式。  
-  
+單例模式是一個簡單易懂的模式，下面的程式碼很簡單的就達到這樣的需求：
+一開始我們就直接new出這個類別的實體物件，並且將constructor宣告為private，
+這樣其他程式就無法再new出新物件，如此一來就能保證這個類別只會存在一個實體物件，
+這種寫法因為一開始就已經建立物件，因此也稱為貪婪單例模式(Greed Singleton)。    
 ```
 public class SingletonGreed {
 	// 一開始就建立物件，這樣只要一直回傳這個物件就是簡單的singleton
@@ -24,13 +25,11 @@ public class SingletonGreed {
 ```
 public class Singleton {
 	private static Singleton instance;
-	
-	
+		
 	private Singleton(){
 		// 這裡面跑很了多code，建立物件需要花費很多資源
 	}
-	
-	
+		
 	public static Singleton getInstance(){
 		// 第一次被呼叫的時候再建立物件
 		if(instance == null){
@@ -41,8 +40,8 @@ public class Singleton {
 }
 ```  
 
-以上程式看起來沒問題，不過如果是多執行的情況下呼叫getInstance，可能第一個執行序跑到instance = new Singleton()時，將時間讓給第二個
-執行序，因此第二個執行序也執行了instance = new Singleton()，造成同時new了兩個新的物件。
+以上程式看起來沒問題，不過如果是多執行緒的情況下呼叫getInstance，可能第一個執行緒跑到instance = new Singleton()時，將時間讓給第二個
+執行緒，因此第二個執行緒也執行了instance = new Singleton()，造成同時new了兩個新的物件。
 
 ```
 /**
@@ -54,7 +53,7 @@ public class SingletonTest extends Thread {
         myId = id;
     }
     
-    // 執行序執行的時候就去呼叫Singleton.getInstance()
+    // 執行緒執行的時候就去呼叫Singleton.getInstance()
     public void run() {
     	Singleton singleton = Singleton.getInstance();
     	if(singleton != null){
@@ -65,16 +64,16 @@ public class SingletonTest extends Thread {
     
     public static void main(String[] argv) {
 		/*
-    	// 單執行序的時候，s1與s2確實為同一個物件
+    	// 單執行緒的時候，s1與s2確實為同一個物件
     	Singleton s1  =  Singleton.getInstance();
     	Singleton s2  =  Singleton.getInstance();
     	System.out.println("s1:"+s1.hashCode() + " s2:" + s2.hashCode());
     	System.out.println();
     	*/
 		
-    	// 兩個執行序同時執行
-        Thread t1 = new SingletonTest("執行序T1"); // 產生Thread物件
-        Thread t2 = new SingletonTest("執行序T2"); // 產生Thread物件
+    	// 兩個執行緒同時執行
+        Thread t1 = new SingletonTest("執行緒T1"); // 產生Thread物件
+        Thread t2 = new SingletonTest("執行緒T2"); // 產生Thread物件
         t1.start(); // 開始執行t1.run()
         t2.start();
     }
