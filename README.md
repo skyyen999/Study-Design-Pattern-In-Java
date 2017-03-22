@@ -44,5 +44,4 @@
 
 ##作者 
 #### Yan13(驗)
-#### e-mail: skyyen999@gmail.com  
-#### github: https://github.com/skyyen999  
+#### e-mail: yan13TW@gmail.com  
