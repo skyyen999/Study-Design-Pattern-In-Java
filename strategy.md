@@ -3,12 +3,10 @@
 ####目的：將各種可以互換的演算法(策略)包裝成一個類別  
 
 ###冒險者要來打怪物了
-經過了新手村刻苦的訓練，冒險者終於踏出了村莊，面對不同的怪物，
-冒險者需要選擇不同的戰鬥策略來跟各種怪物戰鬥，例如說一般的小怪物就隨便攻擊就好，
-遇到強一點的怪物可能就需要放技能來造成大量的傷害，遇到刀槍不入的殭屍就用火來燒。  
-
-在策略模式中，首先我們需要一個策略介面(Strategy)，各種實際上的戰鬥策略則是實體策略(ConcretStratey)，
-使用策略的冒險者則是環境類別Context。
+經過了新手村刻苦的訓練，冒險者終於踏出了村莊，面對不同的怪物，冒險者需要選擇不同的戰鬥策略(Strategy)來跟各種怪物戰鬥，例如說一般的小怪物就隨便砍兩刀就好，遇到強一點的怪物可能就需要放技能來造成大量的傷害，遇到刀槍不入的殭屍就用火來燒。  
+    
+在策略模式中，會有規範用的策略介面(Strategy)，各種實際上的戰鬥策略則是實體策略(Concrete Strategy)，使用策略的冒險者則是環境類別(Context)。  
+  
   
 ###類別圖  
 ![Strategy Class Diagram](image/strategy.gif)  
@@ -27,7 +25,7 @@ public interface FlightStrategy {
 }
 
 /**
- * 一般攻擊(ConcretStratey)
+ * 一般攻擊(ConcreteStrategy)
  */
 public class NormalAttack implements FlightStrategy {
 
@@ -38,7 +36,7 @@ public class NormalAttack implements FlightStrategy {
 }
 
 /**
- * 使用技能(ConcretStratey)
+ * 使用技能(ConcreteStrategy)
  */
 public class UseSkill implements FlightStrategy {
 	@Override

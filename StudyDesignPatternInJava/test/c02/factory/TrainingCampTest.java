@@ -28,7 +28,7 @@ public class TrainingCampTest {
 		//看看是不是真的訓練出我們想要的冒險者
 		Assert.assertEquals(memberA.getType(), "Archer");
 		Assert.assertEquals(memberB.getType(), "Warrior");
-		//memberB應該是Warrior不是Knight，因此這邊會報錯
+		// memberB應該是Warrior不是Knight，因此下面這行會報錯
 		// Assert.assertEquals(memberB.getType(), "Knight");
 	}
 }
