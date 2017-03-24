@@ -6,9 +6,7 @@ Reader是被裝飾者介面（實際上是抽象類別），InputerStreamReader�
   
 ReverseReader是我們自己寫的裝飾者，與BufferedReader一樣可以用來增加FileReader的功能，這邊提供的是reverseLine方法來將讀出的字串反轉。  
   
-
 ![File IO](image/fileIO.gif)  
-
 
 程式碼
 ```
