@@ -20,6 +20,7 @@ public class Waitress {
 			if(snackQty <= 0){
 				System.out.println("點心賣完了");
 			} else {
+				System.out.println("增加點心訂單");
 				snackQty--;
 				orderList.add(order);				
 			}
@@ -29,6 +30,7 @@ public class Waitress {
 			if(drinkQty <= 0){
 				System.out.println("飲料賣完了");
 			} else {
+				System.out.println("增加飲料訂單");
 				drinkQty--;
 				orderList.add(order);				
 			}
@@ -40,12 +42,15 @@ public class Waitress {
 	 * @param order
 	 */
 	public void cancelOrder(Order order) {
+		
 		if(order.name.equals("drinkOrder")){
 			drinkQty++;
+			System.out.println("取消一杯飲料");
 		}
 		
 		if(order.name.equals("snackOrder")){
 			snackQty++;
+			System.out.println("取消一個點心");
 		}
 		orderList.remove(order);		
 	}

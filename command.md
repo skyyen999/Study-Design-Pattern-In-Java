@@ -5,7 +5,7 @@
 接收者可將請求排成工作序列，也可以進行尚未執行的請求
 
   
-###解完任務任務後到咖啡廳來一杯吧
+###解完任務後到咖啡廳來一杯吧
 對冒險者們來說，解完任務後冒險者飲料店來喝一杯飲料，吃個甜點是很重要的，現在我們來看看這家飲料店的配置，
 首先外場有可愛的女服務生(Invoker)接受冒險者(Client)填的點餐訂單(Command)，目前飲料店販賣的有飲料跟點心兩種產品，
 因此訂單也就分成了飲料訂單跟點心訂單，全部的訂單都由廚房人員(Receiver)來負責處理，飲料訂單由搖飲料的小弟負責，
@@ -121,6 +121,7 @@ public class Waitress {
 			if(snackQty <= 0){
 				System.out.println("點心賣完了");
 			} else {
+				System.out.println("增加點心訂單");
 				snackQty--;
 				orderList.add(order);				
 			}
@@ -130,6 +131,7 @@ public class Waitress {
 			if(drinkQty <= 0){
 				System.out.println("飲料賣完了");
 			} else {
+				System.out.println("增加飲料訂單");
 				drinkQty--;
 				orderList.add(order);				
 			}
@@ -141,12 +143,15 @@ public class Waitress {
 	 * @param order
 	 */
 	public void cancelOrder(Order order) {
+		
 		if(order.name.equals("drinkOrder")){
 			drinkQty++;
+			System.out.println("取消一杯飲料");
 		}
 		
 		if(order.name.equals("snackOrder")){
 			snackQty++;
+			System.out.println("取消一個點心");
 		}
 		orderList.remove(order);		
 	}
@@ -160,12 +165,11 @@ public class Waitress {
 		}
 		orderList.clear();
 	}
-
 }
-
 ```
 測試碼  
 ```
+public class CoffeShopClient {
 	public static void main(String[] args) {
 		System.out.println("============命令模式測試============");
 		//開店前準備
@@ -175,7 +179,8 @@ public class Waitress {
 		Order drinkOrder = new DrinkOrder(barkeep);
 		
 		Waitress cuteGirl = new Waitress();
-		
+		System.out.println("====客人點餐====");
+
 		//開始營業 客戶點餐
 		cuteGirl.setOrder(snackOrder);
 		cuteGirl.setOrder(snackOrder);
@@ -184,30 +189,41 @@ public class Waitress {
 
 		// 飲料還沒賣完
 		cuteGirl.setOrder(drinkOrder);
+		System.out.println("====客人取消點心測試====");
 		// 取消一個點心
 		cuteGirl.cancelOrder(snackOrder);
 		// 點心又可以賣了
 		cuteGirl.setOrder(snackOrder);
-		
-		System.out.println();
-		// 點餐完成，送到後面廚房通知廚師與搖飲料小弟
+		System.out.println("===點餐完成，送到後面廚房通知廚師與搖飲料小弟===");
 		cuteGirl.notifyBaker();
-		
-		System.out.println("---點心賣完了---");
+		System.out.println();
+		System.out.println("====點心庫存不足測試====");
 		// 點心賣完了
 		cuteGirl.setOrder(snackOrder);
 	}
-```
+}
+```  
+  
 測試結果
 ```
 ============命令模式測試============
+====客人點餐====
+增加點心訂單
+增加點心訂單
+增加飲料訂單
+增加飲料訂單
+增加飲料訂單
+====客人取消點心測試====
+取消一個點心
+增加點心訂單
+===點餐完成，送到後面廚房通知廚師與搖飲料小弟===
+取出麵包->美乃滋塗上滿滿的麵包->丟進烤箱->灑上可以吃的裝飾->點心完成
+拿出杯子->加滿冰塊->把飲料倒進杯子->飲料完成
+拿出杯子->加滿冰塊->把飲料倒進杯子->飲料完成
+拿出杯子->加滿冰塊->把飲料倒進杯子->飲料完成
+取出麵包->美乃滋塗上滿滿的麵包->丟進烤箱->灑上可以吃的裝飾->點心完成
 
-取出麵包->美乃滋塗上滿滿的麵包->丟進烤箱->灑上可以吃的裝飾->點心完成
-拿出杯子->加滿冰塊->把飲料倒進杯子->飲料完成
-拿出杯子->加滿冰塊->把飲料倒進杯子->飲料完成
-拿出杯子->加滿冰塊->把飲料倒進杯子->飲料完成
-取出麵包->美乃滋塗上滿滿的麵包->丟進烤箱->灑上可以吃的裝飾->點心完成
----點心賣完了---
+====點心庫存不足測試====
 點心賣完了
 
 ```

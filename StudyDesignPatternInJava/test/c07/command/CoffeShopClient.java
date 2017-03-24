@@ -20,7 +20,8 @@ public class CoffeShopClient {
 		Order drinkOrder = new DrinkOrder(barkeep);
 		
 		Waitress cuteGirl = new Waitress();
-		
+		System.out.println("====客人點餐====");
+
 		//開始營業 客戶點餐
 		cuteGirl.setOrder(snackOrder);
 		cuteGirl.setOrder(snackOrder);
@@ -29,16 +30,15 @@ public class CoffeShopClient {
 
 		// 飲料還沒賣完
 		cuteGirl.setOrder(drinkOrder);
+		System.out.println("====客人取消點心測試====");
 		// 取消一個點心
 		cuteGirl.cancelOrder(snackOrder);
 		// 點心又可以賣了
 		cuteGirl.setOrder(snackOrder);
-		
-		System.out.println();
-		// 點餐完成，送到後面廚房通知廚師與搖飲料小弟
+		System.out.println("===點餐完成，送到後面廚房通知廚師與搖飲料小弟===");
 		cuteGirl.notifyBaker();
-		
-		System.out.println("---點心賣完了---");
+		System.out.println();
+		System.out.println("====點心庫存不足測試====");
 		// 點心賣完了
 		cuteGirl.setOrder(snackOrder);
 	}
