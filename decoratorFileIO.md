@@ -74,7 +74,7 @@ public class JavaIOTest {
 	}
 }
 ```
-  
+ 
 測試結果    
 ```
 =========FileReader讀取檔案==========
