@@ -10,7 +10,7 @@ ReverseReader是我們自己寫的裝飾者，與BufferedReader一樣可以用�
 ![File IO](image/fileIO.gif)  
 
 
-###程式碼
+程式碼
 ```
 /**
  * 裝飾類別-將讀入的字串反轉
@@ -36,7 +36,10 @@ public class ReverseReader extends BufferedReader{
 		return result;
 	}
 }
+```
 
+測試碼
+```
 /**
  * 裝飾模式實例javaIO-測試
  */
