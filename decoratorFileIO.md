@@ -1,9 +1,11 @@
 # 裝飾者模式實例 File IO
 
-最著名的裝飾模式應用，應該就是java.io這套讀寫檔案的API了，這邊取出幾個java.io package內的類別，類別圖如下圖所示：
-右邊的StringBufferInputStream與FileInputStream就如同冒險者故事的槍兵一樣，是一個可以被裝飾的具體類別。左邊的FilterInputStream則是抽象裝飾者，BufferedInputStream與LineNumberInputStream則是實際的裝飾者類別， 其中BufferedInputStream提供mark跟reset方法，可以讓讀過的檔案再次重讀；LineNumberInputStream可以使用getLineNumber()來取得目前位置的行號。  
-
-這邊我們自己寫一個簡單的裝飾類別UpperCaseInputStream，功能是將檔案內的文字轉為大寫。
+最著名的裝飾模式應用，應該就是java.io這套讀寫檔案的API了，這邊取出幾個java.io package內的類別，類別圖如下圖所示：  
+  
+Reader是被裝飾者介面（實際上是抽象類別），InputerStreamReader與FileReader是實作類別，也就是實際上的被裝飾者。左邊的BufferedReader是裝飾者，最主要的功能是提供一個readLine的方法，這個方法可以讓Reader一次讀取一行文字，比起FileReader一次只能讀取一個字元，使用上方便許多。  
+  
+ReverseReader是我們自己寫的裝飾者，與BufferedReader一樣可以用來增加FileReader的功能，這邊提供的是reverseLine方法來將讀出的字串反轉。  
+  
 
 ![File IO](image/fileIO.gif)  
 
@@ -11,17 +13,27 @@
 ###程式碼
 ```
 /**
- * 裝飾類別-將讀入的字母轉成大寫
+ * 裝飾類別-將讀入的字串反轉
  */
-public class UpperCaseInputStream extends FilterInputStream{
-	public UpperCaseInputStream(InputStream in) {
+public class ReverseReader extends BufferedReader{
+
+	public ReverseReader(Reader in) {
 		super(in);
 	}
 
-	@Override
-	public int read() throws IOException {
-		int c = super.read();
-		return (c == -1) ? c : Character.toUpperCase((char)c) ;
+	public String reverseLine() throws IOException {
+		String line = super.readLine();
+		if(line == null) return null;
+		return reverse(line);
+	}
+
+	// 反轉字串
+	private String reverse(String source){
+		String result = "";
+		for(int i = 0; i < source.length() ; i++ ){
+			result = source.charAt(i) + result;
+		}
+		return result;
 	}
 }
 
@@ -29,27 +41,46 @@ public class UpperCaseInputStream extends FilterInputStream{
  * 裝飾模式實例javaIO-測試
  */
 public class JavaIOTest {
+	@SuppressWarnings("resource")
 	@Test
 	public void test() throws IOException{
-			// 測試將讀入的字母換成大寫
-			InputStream in = new UpperCaseInputStream(new BufferedInputStream(new FileInputStream("test.txt")));
+			System.out.println("=========FileReader讀取檔案==========");
+			FileReader reader = new FileReader("test.txt");
+			int c = reader.read();
+			while (c >= 0) {
+	            System.out.print((char)c);
+	            c = reader.read();
+	        }	
 			
-			int c;
-			// 這是 BufferedInputStream 提供的mark
-			in.mark(0);
-			while(( c = in.read()) >= 0){
-				System.out.print((char)c);
-			}
+			System.out.println("=========BufferedReader讀取檔案==========");
+			BufferedReader bufferedReader = new BufferedReader(new FileReader("test.txt"));
+			String line = bufferedReader.readLine();;
+			while (line!=null) {
+                System.out.println(line);
+                line = bufferedReader.readLine();
+            }	
 			
-			// 這是 BufferedInputStream 提供的reset
-			in.reset();
-			System.out.println("--------------reset--------------");
-			while( (c = in.read()) >= 0){
-				System.out.print((char)c);
-			}
-			in.close();
-			
+			System.out.println("=========Reverse Reader反轉讀入的內容==========");
+			// 測試將讀入的句子倒轉
+			ReverseReader reverseReader = new ReverseReader(new FileReader("test.txt"));
+			String rLine = reverseReader.reverseLine();
+			while (rLine!=null) {
+                System.out.println(rLine);
+                rLine = reverseReader.reverseLine();
+            }		
 	}
 }
 ```
-
+  
+測試結果    
+```
+=========FileReader讀取檔案==========
+apple pen
+pineapple pen  
+=========BufferedReader讀取檔案==========
+apple pen
+pineapple pen  
+=========Reverse Reader反轉讀入的內容==========
+nep elppa
+  nep elppaenip
+```

@@ -1,4 +1,2 @@
-apple 
-pen
-pineapple 
-pen  
+apple pen
+pineapple pen  
