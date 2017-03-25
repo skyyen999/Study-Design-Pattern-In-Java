@@ -64,5 +64,4 @@ public class Waitress {
 		}
 		orderList.clear();
 	}
-
 }

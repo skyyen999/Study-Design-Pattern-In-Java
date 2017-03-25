@@ -114,6 +114,10 @@ public class EazyMaze extends MazeTemplate{
 		System.out.println("拔草整理場地");
 		System.out.println("簡易迷宮準備完成!!!");
 	}
+	@Override
+	void start() {
+		System.out.println("冒險者開始進行簡單迷宮的冒險");
+	}
 }
 
 /**
@@ -141,10 +145,6 @@ public class DifficultMaze extends MazeTemplate{
 		System.out.println("冒險者開始進行困難迷宮的冒險");
 	}
 
-	}
-	@Override
-	void start() {
-		System.out.println("冒險者開始進行簡單迷宮的冒險");
 	}
 }
 ```
