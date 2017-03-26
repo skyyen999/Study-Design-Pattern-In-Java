@@ -10,17 +10,14 @@ public abstract class AbstractAssociation {
 	}
 	/**
 	 * 增加轄下分會或部門
-	 * @param a
 	 */
 	public abstract void add(AbstractAssociation a);
 	/**
 	 * 移除增加轄下分會或部門
-	 * @param a
 	 */
 	public abstract void remove(AbstractAssociation a);
 	/**
 	 * 印出組織結構圖
-	 * @param depth
 	 */
 	public abstract void display(int depth);
 	

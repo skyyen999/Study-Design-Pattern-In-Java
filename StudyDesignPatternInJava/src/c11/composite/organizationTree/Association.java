@@ -27,14 +27,12 @@ public class Association extends AbstractAssociation{
 	
 	/**
 	 * 移除增加轄下分會或部門
-	 * @param a
 	 */
 	public void remove(AbstractAssociation a){
 		branchs.remove(a);
 	};
 	/**
 	 * 印出組織結構圖
-	 * @param depth
 	 */
 	public void display(int depth){
 		for(int i = 0 ; i < depth ; i++){

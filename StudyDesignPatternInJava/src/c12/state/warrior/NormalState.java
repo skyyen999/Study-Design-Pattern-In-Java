@@ -10,7 +10,7 @@ public class NormalState implements State{
 	@Override 	
 	public void move(Warrior warrior) {
 		if(warrior.getHP() > 70){
-			System.out.println("HP=" + warrior.getHP() + " , no buff ");	
+			System.out.println("HP=" + warrior.getHP() + " , 一般狀態 ");	
 		} else {
 			warrior.setState(new FuryState());
 			warrior.move();
