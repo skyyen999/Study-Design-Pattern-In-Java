@@ -25,9 +25,9 @@ public class BranchOrganizationTest {
 		root.add(mars);
 
 		AbstractAssociation saturn = new Association("土星分會");
-		mars.add(new HumanResouce("土星分會-人力資源單位"));
-		mars.add(new ServiceDepartment("土星分會-客服單位"));
-		root.add(mars);
+		saturn.add(new HumanResouce("土星分會-人力資源單位"));
+		saturn.add(new ServiceDepartment("土星分會-客服單位"));
+		root.add(saturn);
 		
 		AbstractAssociation m1 = new Association("土衛1號辦事處");
 		m1.add(new HumanResouce("土衛1號辦事處-人力資源單位"));
@@ -36,7 +36,7 @@ public class BranchOrganizationTest {
 		
 		// 地區偏遠，沒人會過來客服的地方
 		AbstractAssociation m2 = new Association("土衛2號辦事處");
-		m2.add(new HumanResouce("火衛2號辦事處-人力資源單位"));
+		m2.add(new HumanResouce("土衛2號辦事處-人力資源單位"));
 		saturn.add(m2);
 		
 		System.out.println("結構圖:");
