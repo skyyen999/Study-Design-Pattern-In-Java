@@ -10,6 +10,7 @@ public class ProxyFightManager extends FightManager{
 	public ProxyFightManager(FightManager source){
 		this.source = source;
 	}
+	@SuppressWarnings("deprecation")
 	public void doFight(String userName){
 		//這段完全就只是記錄用，與戰鬥過程沒關係
 		System.out.println(">開始時間:"  +  new Date().toLocaleString()); 		
