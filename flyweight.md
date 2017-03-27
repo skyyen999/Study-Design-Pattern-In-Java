@@ -4,8 +4,7 @@
 一個蠅量級類別包刮了內部性質，也就是所有物件都共用的性質，另外也有外部性質，這是隨著需求可以變換的性質。  
 
 ###樹，都是一樣的
-現在我們有個假日花園系統，每個人都可以來認養一棵樹，不過為了省錢，所以每一個樹種我們只栽種一棵，當擁有者來的
-時候，我們只是將掛牌上的擁有者姓名換掉，實際上提供的是同一顆樹。  
+現在我們有個假日花園系統，每個人都可以來認養一棵樹，不過為了省錢，所以每一個樹種我們只栽種一棵，當擁有者來的時候，我們只是將掛牌上的擁有者姓名換掉，實際上提供的是同一顆樹。  
   
 你說如果同時有兩個擁有者來看同一顆樹怎麼辦!!?不好意思，我們這個假日花園是採預約制的，每一個樹種一次只開放一個擁有者參觀。
   
@@ -81,19 +80,13 @@ public class TreeTest {
 ```  
 測試結果：
 ```
-		System.out.println("============蠅量級模式測試============");
+============蠅量級模式測試============
+取得一顆新的玫瑰
+玫瑰 , 擁有者: Rose
+Jacky來買一顆玫瑰花
+##Jacky看玫瑰的時候，其實我們沒有創一棵的給他，而是拿Rose那顆換個名牌
+玫瑰 , 擁有者: Jacky
 
-		Tree rose = TreeManager.getTree("玫瑰");
-		rose.setOwner("Rose");
-		rose.display();
-		System.out.println("Jacky來買一顆玫瑰花");
-		Tree jRose = TreeManager.getTree("玫瑰");
-		jRose.setOwner("Jacky");
-		System.out.println("##Jacky看玫瑰的時候，其實我們沒有創一棵的給他，而是拿Rose那顆換個名牌");
-		jRose.display();
-		
-		System.out.println();
-		Tree hinoki = TreeManager.getTree("台灣紅檜");
-		hinoki.setOwner("林務局");
-		hinoki.display();
+取得一顆新的台灣紅檜
+台灣紅檜 , 擁有者: 林務局
 ``` 
