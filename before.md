@@ -7,8 +7,8 @@
 去找一些基礎JAVA教學的書籍來看。
 
 ####2.本書的範例程式
-本書所有的範例程式都放在[Github](https://github.com/skyyen999/StudyDesignPatternInJavaCode.git)，可自行下載，
-所有的範例程式資料夾(src)與測試程式資料夾(test)是分開放的，測試程式會放在對應的package裡面，如下圖所示，src->c01.simpleFactory.village裡面所有的測試碼都放在test->c01.simpleFactory之中。  
+本書開發環境使用Eclipse，所有的範例程式都放在[Github](https://github.com/skyyen999/StudyDesignPatternInJavaCode.git)，可自行下載，
+範例程式資料夾(src)與測試程式資料夾(test)是分開放的，測試程式會放在對應的package裡面，如下圖所示，src->c01.simpleFactory.village裡面所有的測試碼都放在test->c01.simpleFactory之中。  
 ![Test](image/bJunit.png)  
   
 所有程式的入口點都會放在執行測試程式，大部分的測試都是使用JUnit4來執行，如果你沒聽過JUnit或是根JUnit不熟悉的話
@@ -60,9 +60,6 @@ public class ClassD {
 - - -
   
 ##什麼是設計模式?
-設計模式如何解決一些重複性問題的經驗累積，因此有些高手直接說設計模式的聖經，
-Gof的 Design Patterns: Elements of Reusable Object-Oriented Software一書只是把本來就應該知道的事情寫成書，
-毫無參考價值，也有人認為設計模式是對於語言本身缺陷的一種補充，每種程式語言都有各自的優缺點，
-因此同樣設計模式在不同的語言之間呈現出來的樣子會有不小的差異，在這個筆記中是使用JAVA做為範例。
-每一種模式都是創造出來產生一種特定的重複性問題，例如說單例模式(Singleton)就是為了確保一個類別只會被實體化一次，
-學習設計模式最困難不是範例程式碼的複雜物，而是搞清楚這模式要解決怎麼樣的問題，什麼樣的時機適合用這個模式，才是學習的重心。
+設計模式如何解決一些重複性問題的經驗累積，因此有些高手直接說設計模式的聖經「Design Patterns: Elements of Reusable Object-Oriented Software」一書只是把本來就應該知道的事情寫成書，毫無參考價值；也有人認為設計模式是對於語言本身缺陷的一種補充。每種程式語言都有各自的優缺點，因此同樣設計模式在不同的語言之間呈現出來的樣子會有不小的差異，在本書中使用JAVA做為範例。  
+  
+每一種設計模式都是用來解決重複出現的問題，例如說單例模式(Singleton)就是為了確保一個類別只會被實體化一次，學習設計模式最困難不是範例程式碼的複雜度，而是搞清楚這模式要解決怎麼樣的問題，什麼樣的時機適合用這個模式，才是學習的重心。

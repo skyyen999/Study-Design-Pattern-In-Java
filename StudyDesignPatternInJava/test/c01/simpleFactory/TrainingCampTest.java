@@ -22,6 +22,6 @@ public class TrainingCampTest {
 		Assert.assertEquals(memberA.getType(), "Archer");
 		Assert.assertEquals(memberB.getType(), "Warrior");
 		//memberB應該是Warrior不是Knight，因此這邊會報錯，這是Juint的東西，看不懂可以直接跳過
-		// Assert.assertEquals(memberB.getType(), "Knight");
+		Assert.assertEquals(memberB.getType(), "Knight");
 	}
 }
