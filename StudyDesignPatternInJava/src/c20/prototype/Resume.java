@@ -1,46 +1,59 @@
 package c20.prototype;
+
 /**
- * 履歷
+ * 冒險者的履歷
  */
 public class Resume implements Cloneable{
 	private String name;
-	private String age;
-	private String education;
-	private WorkExperience work;	// 工作經驗
-	
-	
-	public Resume(String name){
+	private int level;
+	private String profession;
+	private AdventureExperience experience;
+
+	public Resume(String name, String profession,  int level){
 		this.name = name;
-		work = new WorkExperience();
+		this.level = level;
+		this.profession = profession;
+		experience = new AdventureExperience();
 	}
 	
-	private Resume(WorkExperience work) throws CloneNotSupportedException{
-		this.work = (WorkExperience) work.clone();
+	private Resume(AdventureExperience experience) throws CloneNotSupportedException{
+		this.experience = (AdventureExperience) experience.clone();
 	}
-	
-	public void setProfile(String age, String education){
-		this.age = age;
-		this.education = education;
-	}
-	
-	public void setWorkExperience(String workDate, String company){
-		work.setWorkDate(workDate);
-		work.setCompany(company);
-	}
-	
+
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		// 直接使用 super.clone()，不會得到新的 WorkExperinece實體
-		Resume clone = new Resume(this.work);
-		clone.name = this.name;
-		clone.age = this.age;
-		clone.education = this.education;
+		// 直接使用 super.clone()，不會得到新的 AdventureExperinece實體
+		Resume clone = new Resume(experience);
+		clone.setName(this.name);
+		clone.setLevel(this.level);
+		clone.setProfession(this.profession);
 		return clone;
 	}
 	
 	
 	public void display(){
-		System.out.printf("%s %s %s \n", name,education,age);
-		System.out.printf("工作經歷: %s %s \n", work.getWorkDate(), work.getCompany());
+		System.out.printf("冒險者：%s-%s 等級:%d \n", name, profession, level);
+		System.out.printf("冒險經歷: %s %s \n", experience.getDate(), experience.getLocation());
+		System.out.println();
 	}
-}
+
+	public void setExperience(String date, String location) {
+		experience.setDate(date);
+		experience.setLocation(location);
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public void setProfession(String profession) {
+		this.profession = profession;
+	}
+}	
+
+
+

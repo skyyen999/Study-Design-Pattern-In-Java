@@ -2,10 +2,9 @@
 
 ####目的：將抽象介面與實作類別切開，使兩者可以各自變化而不影響彼此  
 
-###電視機與搖控器  
-控制器介面規範開關電源的功能與選台功能，電視機上有電源開關與選台按鈕，因此電視機可以看做是控制器介面的實作，
-另外還有搖控器也實作了控制器介面，如果讓電視機，搖控器都實作了控制器介面，當搖控器修改時，會影響到電視機，
-反之電視機如果增加新功能，那舊有的搖控器也要調整，因此這邊用橋接模式將控制器介面與電視機分離。
+###冷氣機與搖控器
+年紀跟筆者差不多或小一點的讀者應該會知道，以前的冷氣機上面除了電源開關之外，還有旋鈕可以定時，調整溫度等等功能，不過
+。
 
 ###類別圖 
 ![Bridge Class Diagram](image/bridge.gif)   
@@ -13,7 +12,7 @@
 ###程式碼 
 ```
 /**
- * 控制器介面
+ * 搖控器介面
  */
 public abstract class IRomote {
 	protected ITelevision tv;
@@ -26,9 +25,11 @@ public abstract class IRomote {
 	 * 開關電源
 	 */
 	public void powerOn(){
+		System.out.println("打開電視機");
 		tv.powerOn();
 	} ;
 	public void powerOff(){
+		System.out.println("關閉電視機");
 		tv.powerOff();
 	} ;
 	
@@ -67,7 +68,7 @@ public class SonyRemote2015 extends IRomote {
 		}
 		
 		// ITelevision沒有 setChannel，跑迴圈找頻道
-		while( i != tv.getChannel()){
+		while( i != tv.channel){
 			super.tv.nextChannel();
 		}
 	}
@@ -76,13 +77,10 @@ public class SonyRemote2015 extends IRomote {
 /**
  * 電視機介面
  */
-public abstract class  ITelevision extends IRomote {
-	public ITelevision(ITelevision tv) {
-		super(tv);
-	}
+public abstract class  ITelevision{
 
 	private boolean isPowerOn; // 電視機電源
-	private int channel = 1; // 現在頻道
+	protected int channel = 1;   // 現在頻道
 	/**
 	 * 開關電源
 	 */
@@ -104,12 +102,11 @@ public abstract class  ITelevision extends IRomote {
 		}
 	} ;
 	
-	public int getChannel(){
-		return this.channel;
-	}
-	
 	public void dispaly(){
-		System.out.println("powerOn:" + isPowerOn + " , channel = " + channel);
+		// 電源開啟才有辦法顯示頻道
+		if(isPowerOn){
+			System.out.println("目前頻道 = " + channel);
+		}
 	}
 }
 
@@ -124,10 +121,11 @@ public class SonyTV extends ITelevision {
  * 高畫質電視
  */
 public class SonyHD extends ITelevision {
-
-	public void hdModel(){
-		System.out.println("顯示高畫質電視");
-	}
+	@Override
+	public void powerOn(){
+		super.powerOn();
+		System.out.println("展示高畫值影片");
+	};
 }
 
 ```  
@@ -146,25 +144,25 @@ public class RemoteTest {
 		SonyRemote2000 remote2000 = new SonyRemote2000(tv);
 		System.out.println("------測試電視------");
 		tv.powerOn();
-		System.out.println("---電視打開---");
+		System.out.println("電視打開");
 		tv.dispaly();
-		System.out.println("---下一個頻道---");
+		System.out.println("下一個頻道");
 		tv.nextChannel();
 		tv.dispaly();
 		System.out.println("------測試搖控器------");
 		remote2000.nextChannel();
 		remote2000.nextChannel();
-		System.out.println("---按兩下下一個頻道---");
+		System.out.println("連按兩下下一個頻道");
 		tv.dispaly();
 
-		System.out.println("----------新型電視---------------");
+		System.out.println("------測試高畫值電視------");
 		SonyHD hdTv = new SonyHD();
-		hdTv.hdModel();
-		System.out.println("---使用HD模式---");
 		hdTv.dispaly();
-		System.out.println("----------新型搖控器---------------");
+		
+		System.out.println("----------測試新型搖控器---------------");
 		SonyRemote2015 remote2015 = new SonyRemote2015(hdTv);
 		remote2015.powerOn();
+		hdTv.dispaly();
 		System.out.println("---直接切到頻道10---");
 		remote2015.selectChannel(10);
 		hdTv.dispaly();
@@ -176,18 +174,18 @@ public class RemoteTest {
 ``` 
 ============橋接模式測試============
 ------測試電視------
----電視打開---
-powerOn:true , channel = 1
----下一個頻道---
-powerOn:true , channel = 2
+電視打開
+目前頻道 = 1
+下一個頻道
+目前頻道 = 2
 ------測試搖控器------
----按兩下下一個頻道---
-powerOn:true , channel = 4
-----------新型電視---------------
-顯示高畫質電視
----使用HD模式---
-powerOn:false , channel = 1
-----------新型搖控器---------------
+連按兩下下一個頻道
+目前頻道 = 4
+------測試高畫值電視------
+----------測試新型搖控器---------------
+打開電視機
+展示高畫值影片
+目前頻道 = 1
 ---直接切到頻道10---
-powerOn:true , channel = 10
+目前頻道 = 10
 ``` 

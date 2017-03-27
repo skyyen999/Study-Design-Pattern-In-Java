@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.10" icons="false" automaticImage="GIF" always-add-relationships="false" 
+<class-diagram version="1.1.14" icons="false" automaticImage="GIF" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
   router="FAN">  
-  <class id="1" language="java" name="c21.bridge.remote.ITelevision" project="StudyDesignPatternInJava" 
-    file="/StudyDesignPatternInJava/src/c21/bridge/remote/ITelevision.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="259" y="269"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="c21.bridge.remote.SonyTV" project="StudyDesignPatternInJava" 
-    file="/StudyDesignPatternInJava/src/c21/bridge/remote/SonyTV.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="183" y="412"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="c21.bridge.remote.SonyRemote2000" project="StudyDesignPatternInJava" 
+  <class id="1" language="java" name="c21.bridge.remote.SonyRemote2000" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c21/bridge/remote/SonyRemote2000.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="523" y="415"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
@@ -29,7 +11,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="c21.bridge.remote.IRomote" project="StudyDesignPatternInJava" 
+  <class id="2" language="java" name="c21.bridge.remote.IRomote" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c21/bridge/remote/IRomote.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="605" y="269"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
@@ -38,7 +20,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="c21.bridge.remote.SonyRemote2015" project="StudyDesignPatternInJava" 
+  <class id="3" language="java" name="c21.bridge.remote.SonyRemote2015" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c21/bridge/remote/SonyRemote2015.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="702" y="424"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
@@ -47,40 +29,13 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="c21.bridge.remote.SonyHD" project="StudyDesignPatternInJava" 
-    file="/StudyDesignPatternInJava/src/c21/bridge/remote/SonyHD.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="335" y="420"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <association id="7">    
-    <bendpoint x="490" y="326"/>    
-    <bendpoint x="371" y="326"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="8" name="tv"/>      
-      <multiplicity id="9" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="10">    
+  <generalization id="4">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="5">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="11">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="12">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="13">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
+    <end type="TARGET" refId="2"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

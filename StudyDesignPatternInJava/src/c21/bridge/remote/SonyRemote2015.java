@@ -16,7 +16,7 @@ public class SonyRemote2015 extends IRomote {
 		}
 		
 		// ITelevision沒有 setChannel，跑迴圈找頻道
-		while( i != tv.getChannel()){
+		while( i != tv.channel){
 			super.tv.nextChannel();
 		}
 	}

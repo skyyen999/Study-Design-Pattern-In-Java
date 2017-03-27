@@ -1,6 +1,6 @@
 package c21.bridge.remote;
 /**
- * 控制器介面
+ * 搖控器介面
  */
 public abstract class IRomote {
 	protected ITelevision tv;
@@ -13,9 +13,11 @@ public abstract class IRomote {
 	 * 開關電源
 	 */
 	public void powerOn(){
+		System.out.println("打開電視機");
 		tv.powerOn();
 	} ;
 	public void powerOff(){
+		System.out.println("關閉電視機");
 		tv.powerOff();
 	} ;
 	

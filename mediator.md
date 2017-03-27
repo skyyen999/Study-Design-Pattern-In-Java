@@ -3,13 +3,13 @@
 ####目的：當有多個物件之間有交互作用，使用一個中介物件來負責這些物件的交互
 
 ###聊天系統  
-![Meditor Exmple]mediatorExmple(image/mediatorExmple.png)
+![Meditor Exmple](image/mediatorExmple.png)
 上圖左邊四個圈圈ABCD代表我們的聊天系統上有4個使用者，每一個使用者都能跟其他使用者聊天，
 因此之間的關係會變的像圖一樣很混亂，如果可以將傳遞訊息的工作統一交給中介者(Mediator)，像右圖這樣，
 程式的架構會比較清楚，而且可以切開ABCD之間的互相耦合。   
   
 ###類別圖  
-![Mediator Class Diagram](image/.gif)  
+![Mediator Class Diagram](image/mediator.gif)  
 
 ###程式碼
 ```
