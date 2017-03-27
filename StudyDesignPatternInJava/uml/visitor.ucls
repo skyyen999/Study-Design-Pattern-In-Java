@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.10" icons="false" automaticImage="GIF" always-add-relationships="false" 
+<class-diagram version="1.1.14" icons="false" automaticImage="GIF" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
   router="FAN">  
   <class id="1" language="java" name="c24.visitor.Chef" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c24/visitor/Chef.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="583" y="294"/>    
+    <position height="-1" width="-1" x="470" y="346"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -13,7 +13,7 @@
   </class>  
   <class id="2" language="java" name="c24.visitor.SuperChef" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c24/visitor/SuperChef.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="435" y="408"/>    
+    <position height="-1" width="-1" x="267" y="476"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -22,7 +22,7 @@
   </class>  
   <class id="3" language="java" name="c24.visitor.Visitor_tofu" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c24/visitor/Visitor_tofu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="222" y="232"/>    
+    <position height="-1" width="-1" x="152" y="233"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -31,7 +31,7 @@
   </class>  
   <class id="4" language="java" name="c24.visitor.Visitor_saoMai" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c24/visitor/Visitor_saoMai.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="386" y="234"/>    
+    <position height="-1" width="-1" x="343" y="235"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -49,7 +49,7 @@
   </class>  
   <class id="6" language="java" name="c24.visitor.SuperNoodleChef" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c24/visitor/SuperNoodleChef.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="586" y="406"/>    
+    <position height="-1" width="-1" x="469" y="482"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -58,7 +58,7 @@
   </class>  
   <interface id="7" language="java" name="c24.visitor.Visitor" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c24/visitor/Visitor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="298" y="104"/>    
+    <position height="-1" width="-1" x="250" y="104"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -67,25 +67,27 @@
   </interface>  
   <class id="8" language="java" name="c24.visitor.DarkChef" project="StudyDesignPatternInJava" 
     file="/StudyDesignPatternInJava/src/c24/visitor/DarkChef.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="735" y="406"/>    
+    <position height="-1" width="-1" x="658" y="481"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="9">    
-    <bendpoint x="237" y="396"/>    
-    <bendpoint x="237" y="294"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="10" name="list"/>      
-      <multiplicity id="11" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="12">    
+  <realization id="9">    
     <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <generalization id="10">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="11">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <realization id="12">    
+    <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="7"/>  
   </realization>  
   <generalization id="13">    
@@ -93,28 +95,30 @@
     <end type="TARGET" refId="1"/>  
   </generalization>  
   <dependency id="14">    
-    <bendpoint x="584" y="104"/>    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <realization id="15">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <dependency id="16">    
     <bendpoint x="16" y="397"/>    
     <bendpoint x="16" y="104"/>    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="7"/>  
   </dependency>  
-  <generalization id="17">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="18">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
+  <association id="15">    
+    <bendpoint x="237" y="396"/>    
+    <bendpoint x="237" y="346"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="16" name="list">        
+        <position height="0" width="0" x="-113" y="52"/>      
+      </attribute>      
+      <multiplicity id="17" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-113" y="52"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="18">    
+    <bendpoint x="470" y="104"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
