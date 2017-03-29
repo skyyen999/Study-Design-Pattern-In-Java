@@ -2,136 +2,88 @@
 
 ####目的：將抽象介面與實作類別切開，使兩者可以各自變化而不影響彼此  
 
-###電視機與搖控器
-相信各位跟電視機還算熟，現在我們要設計一台電視與一個搖控器，
-控制器介面規範開關電源的功能與選台功能，電視機上有電源開關與選台按鈕，因此電視機可以看做是控制器介面的實作，
-另外還有搖控器也實作了控制器介面，如果讓電視機，搖控器都實作了控制器介面，當搖控器修改時，會影響到電視機，
-反之電視機如果增加新功能，那舊有的搖控器也要調整，因此這邊用橋接模式將控制器介面與電視機分離。
+###寄個信有這麼複雜嗎
+現在要設計一個郵件寄送系統，要寄信到另外一個地方，只要三天就會到，如果你很急，只要多出一些郵資，
+郵差會在24小時幫你把限時信件送到；接下來如果我們擔心寄出的信沒有確實被收到，那可以寄掛號信，掛號信請收信人簽收，當然掛號信
+也是分為三天到跟24小時到兩種。以上的系統設計出來如下圖：  
+![Bridge descrption](image/bridgeDemo1.gif)  
+  
+以上的系統看起來沒啥問題，現在系統要加一個雙掛號信，對方簽收後郵差會將收信者簽名寄回來，架構會變成這樣。
+![Bridge descrption](image/bridgeDemo3.gif)  
+然後假如我們要再加一個特急件，保證6小時會到，類別的數量就會變成3x3=9種，會變動維度有兩個（信件到達時間與掛號），
+因此類別數量一不小心就會堆的跟山一樣高。為了改善這種情況，我們將寄信這個動作抽出成為一個新的實體，信件就變成了到達時間+寄信兩者的組合。
+這就是橋梁模式。  
+![Bridge descrption](image/bridgeDemo2.gif)
 
-
+  
 ###類別圖 
 ![Bridge Class Diagram](image/bridge.gif)   
 
 ###程式碼 
+寄信類別  
 ```
-/**
- * 搖控器介面
- */
-public abstract class IRomote {
-	protected ITelevision tv;
+public abstract class MailSender {
+	protected Mail mail;
 	
-	public IRomote(ITelevision tv){
-		this.tv = tv;
+	@SuppressWarnings("unused")
+	private MailSender(){};
+	
+	public MailSender(Mail mail){
+		this.mail = mail;
 	}
 	
-	/**
-	 * 開關電源
-	 */
-	public void powerOn(){
-		System.out.println("打開電視機");
-		tv.powerOn();
-	} ;
-	public void powerOff(){
-		System.out.println("關閉電視機");
-		tv.powerOff();
-	} ;
-	
-	/**
-	 * 下一個頻道
-	 */
-	public void nextChannel(){
-		tv.nextChannel();
-	}
+	// 寄信
+	abstract public void send();
 }
 
-
-/**
- * 陽春的搖控器，沒什麼額外的功能
- */
-public class SonyRemote2000 extends IRomote {
-	public SonyRemote2000(ITelevision tv) {
-		super(tv);
+//一般信件
+public class NormalMail extends MailSender{
+	public NormalMail(Mail mail) {
+		super(mail);
 	}
-}
-
-/**
- * 新版搖控器，增加了直接選台的功能
- */
-public class SonyRemote2015 extends IRomote {
-	public SonyRemote2015(ITelevision tv) {
-		super(tv);
-	}
-
-	/**
-	 * 新型搖控器可以直接選頻道
-	 */
-	public void selectChannel(int i){
-		if(i > 10 || i < 1){
-			return;
-		}
-		
-		// ITelevision沒有 setChannel，跑迴圈找頻道
-		while( i != tv.channel){
-			super.tv.nextChannel();
-		}
-	}
-}
-
-/**
- * 電視機介面
- */
-public abstract class  ITelevision{
-
-	private boolean isPowerOn; // 電視機電源
-	protected int channel = 1;   // 現在頻道
-	/**
-	 * 開關電源
-	 */
-	public void powerOn(){
-		this.isPowerOn = true;
-	} ;
-	public void powerOff(){
-		this.isPowerOn = false;
-	} ;
-	
-	/**
-	 * 切換到下一個頻道
-	 */
-	public void nextChannel(){
-		if(channel > 10){
-			this.channel = 1;
-		} else {
-			channel++;
-		}
-	} ;
-	
-	public void dispaly(){
-		// 電源開啟才有辦法顯示頻道
-		if(isPowerOn){
-			System.out.println("目前頻道 = " + channel);
-		}
-	}
-}
-
-/**
- * 一般的電視
- */
-public class SonyTV extends ITelevision {
-
-}
-
-/**
- * 高畫質電視
- */
-public class SonyHD extends ITelevision {
 	@Override
-	public void powerOn(){
-		super.powerOn();
-		System.out.println("展示高畫值影片");
-	};
+	public void send() {
+		System.out.print(">>信件寄出後3~5天內抵達  ");
+		super.mail.resgiterState();
+	}
 }
 
+//限時信
+public class PromptMail extends MailSender{
+	public PromptMail(Mail mail) {
+		super(mail);
+	}
+
+	@Override
+	public void send() {
+		System.out.print(">>信件寄出後24小時內抵達  ");
+		super.mail.resgiterState();
+	}
+}
 ```  
+平信，掛號信，雙掛號信類別 
+```
+public abstract class Mail {
+	// 平信，掛號信，雙掛號信等
+	abstract void resgiterState();
+}
+//非掛號信
+public class NoRegisterMail extends Mail{
+	@Override
+	void resgiterState() {
+		System.out.println("這是封信不是註冊信，收件人不用簽名  ");		
+	}
+}
+//掛號信
+public class RegisterMail extends Mail{
+	@Override
+	void resgiterState() {
+		System.out.println("這是一封掛號信，收件人必需簽名  ");
+	}
+}
+```  
+
+
 測試碼
 ```  
 /**
@@ -176,19 +128,11 @@ public class RemoteTest {
 測試結果
 ``` 
 ============橋接模式測試============
-------測試電視------
-電視打開
-目前頻道 = 1
-下一個頻道
-目前頻道 = 2
-------測試搖控器------
-連按兩下下一個頻道
-目前頻道 = 4
-------測試高畫值電視------
-----------測試新型搖控器---------------
-打開電視機
-展示高畫值影片
-目前頻道 = 1
----直接切到頻道10---
-目前頻道 = 10
+----ㄧ般信件測試----
+>>信件寄出後3~5天內抵達  這是封信不是註冊信，收件人不用簽名  
+>>信件寄出後3~5天內抵達  這是一封掛號信，收件人必需簽名  
+----限時信件測試----
+>>信件寄出後24小時內抵達  這是封信不是註冊信，收件人不用簽名  
+>>信件寄出後24小時內抵達  這是一封掛號信，收件人必需簽名  
+
 ``` 
