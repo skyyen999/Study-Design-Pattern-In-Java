@@ -1,4 +1,5 @@
 ﻿# Summary
+* [序](preface.md)
 * [閱讀之前](before.md)
 * [物件導向設計基本原則 - SOLID](oodPrinciple.md)	
 * [Gof 23種設計模式列表](gofPatternList.md)
