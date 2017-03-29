@@ -5,7 +5,131 @@
 為了使類別物件的在集合中還能保有自己的特定，使用拜訪者將物件的行為封裝。
 
 ###中華料理大賽
-中華料理大賽有分別來自特級廚師、黑暗料理界、特極麵點師傅三個陣營的廚師(Interface)參加比賽，參賽的廚師都會加入參賽者名單集合(Collection)，假如第一輪比賽的題目是燒賣，每陣營廚師做出來的燒賣都長的不太一樣，這很簡單，我們只要讓每個廚師分別實作做燒賣這個方法，集合內的廚師只要一個調用做燒賣就可以；接下來第二道題目是豆腐，我們一樣為廚師每個增加做豆腐方法，這時候我們就需要修改廚師集合的內容，廚師才會一個一個做出美味的豆腐，假如比賽的題目不斷增加，我們就必須不斷修改廚師集合。  
+中華料理大賽有分別來自特級廚師、黑暗料理界、特極麵點師傅三個陣營的廚師(Interface)參加比賽，參賽的廚師都會加入參賽者名單集合(Collection)，假如第一輪比賽的題目是燒賣，每陣營廚師做出來的燒賣都長的不太一樣，這很簡單，
+我們只要讓每個廚師分別實作做燒賣這個方法，集合內的廚師只要一個調用做燒賣就可以；接下來第二道題目是豆腐，我們一樣為廚師每個增加做豆腐方法，這時候我們就需要修改廚師集合的內容，廚師才會一個一個做出美味的豆腐，假如比賽的題目不斷增加，我們就必須不斷修改廚師集合，這部分的程式碼如下，假如他們今天要比10道題目，就會有10個if else判斷，也要問廚師介面增加這些題目，當然每個廚師實作類別也要修改。  
+```
+/**
+ * 參加比賽的廚師(被操作元素集合)
+ */
+public class ChefGroup {
+	private List<Chef> list = new ArrayList<>();
+	
+	public void join(Chef chef){
+		list.add(chef);
+	}
+	
+	public void leave(Chef chef){
+		list.remove(chef);
+	}
+	
+	/**
+	 * 指定比賽題目
+	 */
+	public void topic(Topic topic){
+		String topicName = topic.getClass().getSimpleName();
+		
+		if(topicName.equals("Topic_saoMai")){
+			//比賽題目為燒賣
+			for(Chef chef : list){
+				chef.cookSaoMai();
+			}				
+		} else if(topicName.equals("tofu")){
+			// 比賽題目為豆腐
+			for(Chef chef : list){
+				chef.cookTofu();
+			}
+		} //要增加題目，首先要增加else if判斷
+	}
+}
+
+/**
+ * 廚師介面-被操作的元素
+ */
+public abstract class Chef {
+	private String name;
+	public Chef(String name){
+		this.name = name;
+	}
+	public String getName() {
+		return name;
+	}
+	
+	abstract void cookTofu(); 	//廚師要會做豆腐
+	abstract void cookSaoMai(); //廚師要會做燒賣
+	//...要增加題目，要修改廚師介面
+}
+// 特級廚師
+public class SuperChef extends Chef {
+
+	public SuperChef(String name) {
+		super(name);
+	}
+
+	@Override
+	void cookTofu() {
+		System.out.println(this.getName() + " : 宇宙大燒賣");		
+	}
+
+	@Override
+	void cookSaoMai() {
+		System.out.println(this.getName() + " : 熊貓豆腐");		
+	}
+	
+	//...要增加題目，要修改廚師實作類別
+}
+
+//黑暗料理界廚師
+public class DarkChef extends Chef {
+	public DarkChef(String name) {
+		super(name);
+	}
+
+	@Override
+	void cookTofu() {
+		System.out.println(this.getName() + " : 魔幻鴉片燒賣");
+	}
+
+	@Override
+	void cookSaoMai() {
+		System.out.println(this.getName() + " : 豆腐三重奏");		
+	}
+	
+	//...要增加題目，要修改廚師實作類別
+}
+
+//特級麵點師傅
+public class SuperNoodleChef extends Chef {
+	public SuperNoodleChef(String name) {
+		super(name);
+	}
+
+	@Override
+	void cookTofu() {
+		System.out.println(this.getName() + " : 鐵桿臭豆腐");								
+	}
+
+	@Override
+	void cookSaoMai() {
+		System.out.println(this.getName() + " : 鐵桿50人份燒賣");					
+	}
+	
+	//...要增加題目，要修改廚師實作類別
+}
+
+// 指定的比賽菜餚
+public interface Topic {
+
+}
+// 燒賣
+public class Topic_saoMai implements Topic {
+
+}
+// 豆腐
+public class Topic_tofu implements Topic {
+
+}
+```
+
 
 為了避免上面這種情況，這邊我們將比賽題目抽出成為拜訪者(Visitor)，做燒賣這個動作則是實作拜訪者的類別，我們將每陣營廚師做燒賣的方法交給做燒賣拜訪者來實現，接下來比賽的題目不斷的增加，我們只要一直增加實體拜訪者(ConcreteVisotor)就好，不需要修改廚師集合的內容。例如說今天第二輪題目是做豆腐料理，那我們只要增加一個做豆腐拜訪者即可。  
 

@@ -17,7 +17,7 @@
 
   
 ###類別圖 
-![Bridge Class Diagram](image/bridge.gif)   
+![Bridge Class Diagram](image/bridgeMail.gif)   
 
 ###程式碼 
 寄信類別  
