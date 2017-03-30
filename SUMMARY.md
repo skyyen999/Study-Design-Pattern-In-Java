@@ -34,5 +34,4 @@
 	* [備忘錄模式 Memento](memento.md)
 	* [蠅量級(享元)模式 Flyweight](flyweight.md)
 	* [拜訪者模式 Visitor](visitor.md)
-* [附錄-A 物件導向簡介](OOP_introduce.md)
-* [附錄-B Unit Test簡介](UnitTest.md)	
+* [附錄-A Unit Test簡介](junit.md)	
