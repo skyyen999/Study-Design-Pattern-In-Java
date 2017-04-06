@@ -5,10 +5,10 @@ package c07.command.coffeShop;
  */
 public abstract class Order {
 	// 廚房工作者(receiver)
-	protected KitchenWoker receiver;
+	protected KitchenWorker receiver;
 	protected String name;
 	
-	public Order(KitchenWoker receiver){
+	public Order(KitchenWorker receiver){
 		this.receiver = receiver;
 	}
 	

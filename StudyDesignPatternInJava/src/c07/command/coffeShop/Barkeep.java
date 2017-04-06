@@ -2,7 +2,7 @@ package c07.command.coffeShop;
 /**
  * 搖飲料小弟(ConcreteReceiver)
  */
-public class Barkeep implements KitchenWoker{
+public class Barkeep implements KitchenWorker{
 
 	@Override
 	public void finishOrder() {

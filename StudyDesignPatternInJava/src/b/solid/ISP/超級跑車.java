@@ -1,4 +1,4 @@
-package b.solid;
+package b.solid.ISP;
 
 public class 超級跑車  extends 阿文的車 implements 可以上路的車{
 	@Override

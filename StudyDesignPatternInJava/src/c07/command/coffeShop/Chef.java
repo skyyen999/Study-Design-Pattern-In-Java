@@ -3,7 +3,7 @@ package c07.command.coffeShop;
 /**
  * 點心廚師(ConcreteReceiver)
  */
-public class Chef implements KitchenWoker {
+public class Chef implements KitchenWorker {
 
 	@Override
 	public void finishOrder() {
