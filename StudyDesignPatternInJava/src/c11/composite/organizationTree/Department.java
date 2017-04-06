@@ -10,10 +10,12 @@ public abstract class Department extends AbstractAssociation {
 
 	@Override
 	public void add(AbstractAssociation a) {
+		System.out.println("Leaf無法增加子節點");
 	}
 
 	@Override
 	public void remove(AbstractAssociation a) {
+		System.out.println("Leaf無子節點可以移除");
 	}
 
 	@Override
@@ -23,13 +25,4 @@ public abstract class Department extends AbstractAssociation {
 		}
 		System.out.println(name);
 	}
-
-	/**
-	 * 部門實際的工作由子類別決定
-	 */
-	@Override
-	public void lineOfDuty() {
-
-	}
-
 }

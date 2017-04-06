@@ -89,38 +89,21 @@ public class RegisterMail extends Mail{
 /**
  * 橋接模式-測試
  */
-public class RemoteTest {
+public class MailTest {
 
 	@Test
 	public void test(){
 		System.out.println("============橋接模式測試============");
-
-		SonyTV tv = new SonyTV();
-		SonyRemote2000 remote2000 = new SonyRemote2000(tv);
-		System.out.println("------測試電視------");
-		tv.powerOn();
-		System.out.println("電視打開");
-		tv.dispaly();
-		System.out.println("下一個頻道");
-		tv.nextChannel();
-		tv.dispaly();
-		System.out.println("------測試搖控器------");
-		remote2000.nextChannel();
-		remote2000.nextChannel();
-		System.out.println("連按兩下下一個頻道");
-		tv.dispaly();
-
-		System.out.println("------測試高畫值電視------");
-		SonyHD hdTv = new SonyHD();
-		hdTv.dispaly();
-		
-		System.out.println("----------測試新型搖控器---------------");
-		SonyRemote2015 remote2015 = new SonyRemote2015(hdTv);
-		remote2015.powerOn();
-		hdTv.dispaly();
-		System.out.println("---直接切到頻道10---");
-		remote2015.selectChannel(10);
-		hdTv.dispaly();
+		System.out.println("----ㄧ般信件測試----");
+		MailSender mailSender = new NormalMail(new NoRegisterMail());
+		mailSender.send();
+		mailSender= new NormalMail(new RegisterMail());
+		mailSender.send();
+		System.out.println("----限時信件測試----");
+		mailSender = new PromptMail(new NoRegisterMail());
+		mailSender.send();
+		mailSender= new PromptMail(new RegisterMail());
+		mailSender.send();
 	}
 }
 
