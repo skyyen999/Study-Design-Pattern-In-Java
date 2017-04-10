@@ -1,8 +1,5 @@
 ﻿# Summary
-* [序](preface.md)
-* [閱讀之前](before.md)
 * [物件導向設計基本原則 - SOLID](oodPrinciple.md)	
-* [Gof 23種設計模式列表](gofPatternList.md)
 * [單例模式 Singleton](singleton.md)
 * [簡單工廠模式 Simple Factory](simpleFactory.md)
 * [工廠模式 Factory](factory.md)
@@ -11,27 +8,25 @@
 * [策略模式 Strategy](strategy.md) 
 	* [策略模式實例-排序](strategySort.md) 
 	* [策略模式與簡單工廠模式有什麼不同?](strategySimpleFactory.md) 
-* [裝飾者模式 Decorator](decorator.md)	
-	* [裝飾者模式實例-File IO](decoratorFileIO.md)
-* [觀察者模式 Observer](observer.md)	
-* [命令模式 Command](command.md)	
-* [轉接器模式 Adpater](adapter.md)
-* [表象(外觀)模式 Facade](facade.md)
-* [樣版模式 Template](template.md)  
-* [合成模式 Composite](composite.md)  
-* [狀態模式 State](state.md)  
-* [代理模式 Proxy](proxy.md)
-	* [代理模式 - 保護代理](protectProxy.md)
-	* [代理模式 - AOP](protectAOP.md)
-* [其他模式](Others.md)
-	* [走訪器模式 Iterator](iterator.md)
-	* [建造者模式 Builder](builder.md)
-	* [責任鏈模式 ChainOfResponsibility](chainOfResponsibility.md)
-	* [解譯器模式 Interpreter](interpreter.md)
-	* [中介者模式 Mediator](mediator.md)
-	* [原型模式   Prototype](prototype.md)
-	* [橋梁模式   Bridge](bridge.md)
-	* [備忘錄模式 Memento](memento.md)
-	* [蠅量級(享元)模式 Flyweight](flyweight.md)
-	* [拜訪者模式 Visitor](visitor.md)
-* [附錄-A Unit Test簡介](junit.md)	
+* [裝飾者模式 Decorator]	
+	* [裝飾者模式實例-File IO]
+* [觀察者模式 Observer]
+* [命令模式 Command]
+* [轉接器模式 Adpater]
+* [表象(外觀)模式 Facade]
+* [樣版模式 Template]
+* [合成模式 Composite]
+* [狀態模式 State]
+* [代理模式 Proxy]
+	* [代理模式 - 保護代理]
+	* [代理模式 - AOP]
+* [走訪器模式 Iterator]
+* [建造者模式 Builder]
+* [責任鏈模式 ChainOfResponsibility]
+* [解譯器模式 Interpreter]
+* [中介者模式 Mediator]
+* [原型模式   Prototype]
+* [橋梁模式   Bridge]
+* [備忘錄模式 Memento]
+* [蠅量級(享元)模式 Flyweight]
+* [拜訪者模式 Visitor]

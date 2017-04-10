@@ -1,16 +1,9 @@
-#設計模式學習筆計 
+#設計模式學習筆計  
 
-##Study Design Pattern In Java  
-## YanQY(硯取歪)   2016
-## update&reproof  2017  
-
-[開始閱讀](https://skyyen999.gitbooks.io/-study-design-pattern-in-java/content/)  
-[github連結](https://github.com/skyyen999/Study-Design-Pattern-In-Java)  
-[範例程式](https://github.com/skyyen999/Study-Design-Pattern-In-Java/tree/master/StudyDesignPatternInJava)  
-
-
+###首先要跟各位讀者說聲抱歉，因為本書內容已經出版，因為版權關係所以撤下大部分的內容  
+ 
   
-##關於這份文件  
+##關於這份文件    
 一開始的想法是邊讀邊寫，每讀一種模式就寫一篇，沒多久就發現很多模式很類似，對設計模式沒有一定的理解是沒辦法分辨這些類似的模式
 到底有什麼差異。經過不斷的修改與嘗試後，決定先介紹物件導向設計原則，接著開始介紹設計模式，每一個模式盡量自己想一個情境來介紹
 設計模式，因為學的還不夠深入，本來想找一些真正有被框架或是API運作的程式碼，不過找了一下發現有點難，這部分只能先放棄了。
@@ -23,12 +16,16 @@
 的範例更生動活潑也更詳細，例外兩個網站是看書遇到困難的時候幫助釐清觀念的網站，另外還參考了很多網誌、StackOverFlow的討論等等，不管做什麼事情，
 找巨人的肩膀來站一下都是不可或缺的。
 
-以上碎碎念個人學習設計模式的過程。希望這份文件對你有幫助，不嫌麻煩的話可以到[github](https://github.com/skyyen999/Study-Design-Pattern-In-Java)
-給一顆星鼓勵一下，發現錯誤或是想一起討論請到[這邊](https://github.com/skyyen999/Study-Design-Pattern-In-Java/issues)留言或是發mail給我，感激不盡。說了這麼多，請點擊下面連結直接開始閱讀。  
+以上碎碎念個人學習設計模式的過程。雖然因為出版的關係，留下來的內容不多，還是希望希望這份文件對你有幫助。  
+如想進一步閱讀完整內容，可以購買實體書籍。  
+* [7天學會設計模式](http://www.drmaster.com.tw/Bookinfo.asp?BookID=MP21709)  
+  
+對於書名，這邊必須說明一下，7天是指一天專注在設計模式的學習超過12小時，
+再努力七天後你會對設計模式有一個比較完整的初步概念，接下來就可以選擇閱讀其他更專業的設計模式書籍。
 
 ##版權許可（License）
 
-本書採用創用CC授權4.0 "姓名標示─非商業性─相同方式分享(BY-NC-SA)" 授權。
+筆記內容採用創用CC授權4.0 "姓名標示─非商業性─相同方式分享(BY-NC-SA)" 授權。
 
 ![lisense](image/lisense.png)
 
@@ -43,5 +40,5 @@
 * [Design Pattern In Java Tutorail](http://www.tutorialspoint.com/design_pattern/)
 
 ##作者 
-#### YanQY(硯取歪)
+#### Yan(硯取歪)
 #### e-mail: yan13TW@gmail.com  
